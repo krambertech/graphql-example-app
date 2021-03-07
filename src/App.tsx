@@ -1,38 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { gql, useQuery } from '@apollo/client';
+import CountryCard from './components/CountryCard';
 
 const COUNTRIES = gql`
   query GetCountries {
     countries: Country {
       _id
-      name
+      ...CountryCard_Country
     }
   }
+  ${CountryCard.fragments.country}
 `;
 
 function App() {
   const countries = useQuery<any>(COUNTRIES);
 
-  console.log(countries);
+  if (!countries.data) {
+    return null;
+  }
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {countries.data.countries.map((country: any) => (
+        <CountryCard key={country._id} country={country} />
+      ))}
     </div>
   );
 }

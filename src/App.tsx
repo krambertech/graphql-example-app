@@ -1,6 +1,7 @@
 import React from 'react';
 import { gql, useQuery } from '@apollo/client';
 import CountryCard from './components/CountryCard';
+import { Heading } from '@chakra-ui/react';
 
 const COUNTRIES = gql`
   query GetCountries {
@@ -12,7 +13,7 @@ const COUNTRIES = gql`
   ${CountryCard.fragments.country}
 `;
 
-function App() {
+const App: React.FC = () => {
   const countries = useQuery<any>(COUNTRIES);
 
   if (!countries.data) {
@@ -21,11 +22,12 @@ function App() {
 
   return (
     <div className="App">
+      <Heading>Countries</Heading>
       {countries.data.countries.map((country: any) => (
         <CountryCard key={country._id} country={country} />
       ))}
     </div>
   );
-}
+};
 
 export default App;

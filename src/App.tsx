@@ -1,8 +1,22 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { gql, useQuery } from '@apollo/client';
+
+const COUNTRIES = gql`
+  query GetCountries {
+    countries: Country {
+      _id
+      name
+    }
+  }
+`;
 
 function App() {
+  const countries = useQuery<any>(COUNTRIES);
+
+  console.log(countries);
+
   return (
     <div className="App">
       <header className="App-header">

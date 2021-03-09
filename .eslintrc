@@ -6,12 +6,41 @@
     "react-app/jest",
     "prettier"
   ],
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "@graphql-eslint"],
   "parser": "@typescript-eslint/parser",
   "rules": {
     "testing-library/prefer-screen-queries": "error",
     "testing-library/no-manual-cleanup": "error",
     "testing-library/prefer-wait-for": "error",
     "testing-library/no-await-sync-events": "error"
-  }
+  },
+
+  // Overrides or GraphQL Eslint plugin
+  // https://github.com/dotansimha/graphql-eslint
+  "overrides": [
+    {
+      "files": ["*.graphql"],
+      "parser": "@graphql-eslint/eslint-plugin",
+      "plugins": ["@graphql-eslint"],
+      "rules": {
+        "@graphql-eslint/prettier": "error",
+        "@graphql-eslint/require-id-when-available": [
+          "error",
+          {
+            "fieldName": "_id"
+          }
+        ],
+        "@graphql-eslint/unique-fragment-name": "warn",
+        "@graphql-eslint/validate-against-schema": "error",
+        "@graphql-eslint/no-anonymous-operations": "warn",
+        "@graphql-eslint/no-operation-name-suffix": "error",
+        "@graphql-eslint/avoid-operation-name-prefix": [
+          "error",
+          {
+            "keywords": ["get"]
+          }
+        ]
+      }
+    }
+  ]
 }

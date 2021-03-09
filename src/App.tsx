@@ -1,31 +1,10 @@
 import React from 'react';
-import { gql, useQuery } from '@apollo/client';
-import CountryCard from './components/CountryCard';
-import { Heading } from '@chakra-ui/react';
-
-const COUNTRIES = gql`
-  query GetCountries {
-    countries: Country {
-      _id
-      ...CountryCard_Country
-    }
-  }
-  ${CountryCard.fragments.country}
-`;
+import CountriesPage from './pages/CountriesPage';
 
 const App: React.FC = () => {
-  const countries = useQuery<any>(COUNTRIES);
-
-  if (!countries.data) {
-    return null;
-  }
-
   return (
     <div className="App">
-      <Heading>Countries</Heading>
-      {countries.data.countries.map((country: any) => (
-        <CountryCard key={country._id} country={country} />
-      ))}
+      <CountriesPage />
     </div>
   );
 };

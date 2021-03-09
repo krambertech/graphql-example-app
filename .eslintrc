@@ -19,23 +19,30 @@
   // https://github.com/dotansimha/graphql-eslint
   "overrides": [
     {
+      "files": ["*.tsx", "*.ts", "*.jsx", "*.js"],
+      "processor": "@graphql-eslint/graphql"
+    },
+    {
       "files": ["*.graphql"],
       "parser": "@graphql-eslint/eslint-plugin",
+      "parserOptions": {
+        "operations": ["./src/**/*.tsx"],
+        "schema": "./schema.graphql"
+      },
       "plugins": ["@graphql-eslint"],
       "rules": {
-        "@graphql-eslint/prettier": "error",
         "@graphql-eslint/require-id-when-available": [
           "error",
           {
             "fieldName": "_id"
           }
         ],
-        "@graphql-eslint/unique-fragment-name": "warn",
         "@graphql-eslint/validate-against-schema": "error",
-        "@graphql-eslint/no-anonymous-operations": "warn",
-        "@graphql-eslint/no-operation-name-suffix": "error",
+        "@graphql-eslint/no-anonymous-operations": "error",
+        "@graphql-eslint/no-operation-name-suffix": "warn",
+        "@graphql-eslint/avoid-duplicate-fields": "warn",
         "@graphql-eslint/avoid-operation-name-prefix": [
-          "error",
+          "warn",
           {
             "keywords": ["get"]
           }

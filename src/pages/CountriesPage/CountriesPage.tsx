@@ -8,7 +8,6 @@ const COUNTRIES = gql`
       _id
       area
       population
-      jdjdj
       ...CountryCard_Country
     }
   }

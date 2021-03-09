@@ -26,8 +26,7 @@
       "files": ["*.graphql"],
       "parser": "@graphql-eslint/eslint-plugin",
       "parserOptions": {
-        "operations": ["./src/**/*.tsx"],
-        "schema": "./schema.graphql"
+        "operations": ["./src/**/*.tsx"]
       },
       "plugins": ["@graphql-eslint"],
       "rules": {
@@ -49,5 +48,6 @@
         ]
       }
     }
-  ]
+  ],
+  "ignorePatterns": ["__generated__"]
 }

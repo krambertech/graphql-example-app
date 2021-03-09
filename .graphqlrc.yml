@@ -1,0 +1,37 @@
+schema: https://countries-274616.ew.r.appspot.com/
+documents: src/**/*.tsx
+extensions:
+  codegen:
+    generates:
+      src/:
+        config:
+          dedupeOperationSuffix: true
+          documentMode: documentNodeImportFragments
+          namingConvention: keep
+          nonOptionalTypename: true
+          omitOperationSuffix: true
+          preResolveTypes: true
+          reactApolloVersion: 3
+          withComponent: false
+          withHOC: false
+          withHooks: true
+        plugins:
+          - typescript-operations
+          - typescript-react-apollo
+        preset: near-operation-file
+        presetConfig:
+          baseTypesPath: __generated__/types.ts
+          extension: .tsx
+          folder: __generated__
+      src/__generated__/types.ts:
+        config:
+          namingConvention: keep
+        plugins:
+          - typescript
+      ./schema.graphql:
+        plugins:
+          - schema-ast
+      ./schema.json:
+        plugins:
+          - introspection
+    overwrite: true

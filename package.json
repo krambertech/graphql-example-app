@@ -9,11 +9,13 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "type-check": "tsc --noEmit",
-    "graphql:generate": "graphql-codegen --config codegen.yml",
-    "graphql:generate:watch": "graphql-codegen --config codegen.yml --watch \"./src/**/*.tsx\"",
+    "graphql:generate": "graphql codegen",
+    "graphql:generate:watch": "graphql codegen --watch \"./src/**/*.tsx\"",
     "graphql:fetch-schema": "graphql get-schema",
     "predev": "yarn run graphql:fetch-schema",
-    "dev": "concurrently \"yarn start\" \"yarn graphql:generate:watch\""
+    "dev": "concurrently \"yarn start\" \"yarn graphql:generate:watch\"",
+    "graphql:coverage": "graphql coverage",
+    "graphql:validate": "graphql validate"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
@@ -32,9 +34,13 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
+    "@graphql-cli/codegen": "1.17.21",
+    "@graphql-cli/coverage": "2.1.0",
+    "@graphql-cli/validate": "2.1.0",
     "@graphql-codegen/cli": "1.21.2",
-    "@graphql-codegen/introspection": "1.18.1",
+    "@graphql-codegen/introspection": "^1.18.1",
     "@graphql-codegen/near-operation-file-preset": "^1.17.13",
+    "@graphql-codegen/schema-ast": "^1.18.1",
     "@graphql-codegen/typescript": "1.21.1",
     "@graphql-codegen/typescript-operations": "1.17.15",
     "@graphql-codegen/typescript-react-apollo": "2.2.2",

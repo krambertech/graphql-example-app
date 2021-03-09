@@ -8,12 +8,12 @@ export type CountryListVariables = Types.Exact<{ [key: string]: never; }>;
 
 
 export type CountryList = { __typename: 'Query', countries?: Types.Maybe<Array<Types.Maybe<(
-    { __typename: 'Country', _id?: Types.Maybe<string>, area?: Types.Maybe<number> }
+    { __typename: 'Country', _id?: Types.Maybe<string>, area?: Types.Maybe<number>, population: number }
     & CountryCard_Country
   )>>> };
 
 
-export const CountryListDocument: DocumentNode = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"CountryList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"countries"},"name":{"kind":"Name","value":"Country"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"area"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"CountryCard_Country"}}]}}]}},...CountryCard_Country.definitions]};
+export const CountryListDocument: DocumentNode = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"CountryList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"countries"},"name":{"kind":"Name","value":"Country"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"area"}},{"kind":"Field","name":{"kind":"Name","value":"population"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"CountryCard_Country"}}]}}]}},...CountryCard_Country.definitions]};
 
 /**
  * __useCountryList__

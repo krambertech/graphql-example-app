@@ -1,5 +1,5 @@
 schema: https://countries-274616.ew.r.appspot.com/
-documents: ./src/**/*.tsx
+documents: ./src/**/*.graphql
 extensions:
   codegen:
     generates:
@@ -15,7 +15,6 @@ extensions:
           withHOC: false
           withHooks: true
         plugins:
-          - add: '// THIS FILE IS GENERATED, DO NOT EDIT!'
           - typescript-operations
           - typescript-react-apollo
         preset: near-operation-file
@@ -27,7 +26,6 @@ extensions:
         config:
           namingConvention: keep
         plugins:
-          - add: '// THIS FILE IS GENERATED, DO NOT EDIT!'
           - typescript
       ./schema.graphql:
         plugins:
@@ -36,6 +34,3 @@ extensions:
         plugins:
           - introspection
     overwrite: true
-    watchConfig:
-      usePolling: true
-      interval: 1000

@@ -1,0 +1,15 @@
+fragment CountryCardCountry on Country {
+  _id
+  name
+  capital
+  population
+  area
+  subregion {
+    _id
+    name
+  }
+  flag {
+    _id
+    emoji
+  }
+}

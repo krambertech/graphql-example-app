@@ -10,9 +10,7 @@
     "eject": "react-scripts eject",
     "type-check": "tsc --noEmit",
     "graphql:generate": "graphql codegen",
-    "graphql:generate:watch": "graphql codegen --watch src/**/*.tsx",
-    "graphql:fetch-schema": "graphql get-schema",
-    "predev": "yarn run graphql:fetch-schema",
+    "graphql:generate:watch": "graphql codegen --watch",
     "dev": "concurrently \"yarn start\" \"yarn graphql:generate:watch\"",
     "graphql:coverage": "graphql coverage",
     "graphql:validate": "graphql validate"

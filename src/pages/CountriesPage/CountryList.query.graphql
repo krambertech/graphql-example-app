@@ -1,0 +1,12 @@
+query CountryList {
+  countries: Country {
+    _id
+    area
+    population
+    subregion {
+      _id
+      name
+    }
+    ...CountryCardCountry
+  }
+}

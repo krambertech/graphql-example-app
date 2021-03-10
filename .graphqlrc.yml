@@ -1,5 +1,5 @@
 schema: https://countries-274616.ew.r.appspot.com/
-documents: src/**/*.tsx
+documents: ./src/**/*.tsx
 extensions:
   codegen:
     generates:
@@ -7,7 +7,6 @@ extensions:
         config:
           dedupeOperationSuffix: true
           documentMode: documentNodeImportFragments
-          namingConvention: keep
           nonOptionalTypename: true
           omitOperationSuffix: true
           preResolveTypes: true
@@ -16,17 +15,19 @@ extensions:
           withHOC: false
           withHooks: true
         plugins:
+          - add: '// THIS FILE IS GENERATED, DO NOT EDIT!'
           - typescript-operations
           - typescript-react-apollo
         preset: near-operation-file
         presetConfig:
           baseTypesPath: __generated__/types.ts
-          extension: .tsx
+          extension: .ts
           folder: __generated__
       src/__generated__/types.ts:
         config:
           namingConvention: keep
         plugins:
+          - add: '// THIS FILE IS GENERATED, DO NOT EDIT!'
           - typescript
       ./schema.graphql:
         plugins:
@@ -35,3 +36,6 @@ extensions:
         plugins:
           - introspection
     overwrite: true
+    watchConfig:
+      usePolling: true
+      interval: 1000

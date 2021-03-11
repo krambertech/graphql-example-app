@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { HiFlag, HiUserGroup } from 'react-icons/hi';
 import { Box, HStack, Link, Text, VStack } from '@chakra-ui/react';
 import { CountryCardCountry } from './__generated__/CountryCardCountry.fragment';
@@ -14,7 +15,9 @@ const CountryCard: FC<CountryCardProps> = ({ country }) => {
       <HStack spacing={4}>
         <Text fontSize="4xl">{country.flag?.emoji}</Text>
         <VStack spacing={2} align="start">
-          <Link fontWeight="bold">{country.name}</Link>
+          <Link as={RouterLink} to={`/countries/${country.alpha2Code}`} fontWeight="bold">
+            {country.name}
+          </Link>
           <HStack spacing={4}>
             <HStack spacing={1}>
               <HiFlag />

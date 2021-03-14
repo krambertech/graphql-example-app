@@ -4,16 +4,18 @@ import { CountryCardCountry } from '../../../components/CountryCard/__generated_
 import { DocumentNode } from 'graphql';
 import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
-export type CountryListVariables = Types.Exact<{ [key: string]: never; }>;
+export type CountryListVariables = Types.Exact<{
+  filter?: Types.Maybe<Types._CountryFilter>;
+}>;
 
 
 export type CountryList = { __typename: 'Query', countries?: Types.Maybe<Array<Types.Maybe<(
-    { __typename: 'Country', _id?: Types.Maybe<string> }
+    { __typename: 'Country', _id?: Types.Maybe<string>, name: string }
     & CountryCardCountry
-  )>>> };
+  )>>>, subregions?: Types.Maybe<Array<Types.Maybe<{ __typename: 'Subregion', _id?: Types.Maybe<string>, name: string }>>> };
 
 
-export const CountryListDocument: DocumentNode = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"CountryList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"countries"},"name":{"kind":"Name","value":"Country"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"CountryCardCountry"}}]}}]}},...CountryCardCountry.definitions]};
+export const CountryListDocument: DocumentNode = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"CountryList"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filter"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"_CountryFilter"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"countries"},"name":{"kind":"Name","value":"Country"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filter"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filter"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"CountryCardCountry"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"subregions"},"name":{"kind":"Name","value":"Subregion"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}},...CountryCardCountry.definitions]};
 
 /**
  * __useCountryList__
@@ -27,6 +29,7 @@ export const CountryListDocument: DocumentNode = {"kind":"Document","definitions
  * @example
  * const { data, loading, error } = useCountryList({
  *   variables: {
+ *      filter: // value for 'filter'
  *   },
  * });
  */

@@ -1,8 +1,8 @@
-import { Center, Heading, VStack, SimpleGrid, Spinner, Stack, Text, Box, HStack } from '@chakra-ui/react';
+import { Center, Heading, Link, SimpleGrid, Spinner, Stack, Text, Box, HStack } from '@chakra-ui/react';
 import React from 'react';
-import { HiCash, HiFlag, HiLocationMarker, HiTranslate, HiUserGroup } from 'react-icons/hi';
+import { HiFlag, HiLocationMarker, HiUserGroup } from 'react-icons/hi';
 import { FiCrop } from 'react-icons/fi';
-import { useParams } from 'react-router-dom';
+import { useParams, Link as RouterLink } from 'react-router-dom';
 import CountryCard from '../../components/CountryCard';
 import TextLabel from '../../components/TextLabel/TextLabel';
 import formatNumber from '../../utils/formatNumber';
@@ -52,7 +52,9 @@ const CountryDetailsPage: React.FC = () => {
           {country.area}
         </TextLabel>
         <TextLabel icon={<HiLocationMarker />} label="Region">
-          {country.subregion?.name}
+          <Link as={RouterLink} to={`/countries?subregion=${country.subregion?.name}`}>
+            {country.subregion?.name}
+          </Link>
         </TextLabel>
       </SimpleGrid>
 

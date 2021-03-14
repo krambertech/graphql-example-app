@@ -1,6 +1,11 @@
-query CountryList {
-  countries: Country {
+query CountryList($filter: _CountryFilter) {
+  countries: Country(filter: $filter) {
     _id
+    name
     ...CountryCardCountry
+  }
+  subregions: Subregion {
+    _id
+    name
   }
 }

@@ -407,7 +407,7 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.12.16.tgz#cc31257419d2c3189d394081635703f549fc1ed4"
   integrity sha512-c/+u9cqV6F0+4Hpq01jnJO+GLp2DdT63ppz9Xa+6cHaajM9VFzK/iDXiKK65YtpeVwu+ctfS6iqlMqRgQRzeCw==
 
-"@babel/parser@^7.0.0", "@babel/parser@^7.13.0", "@babel/parser@^7.13.10":
+"@babel/parser@^7.0.0", "@babel/parser@^7.1.6", "@babel/parser@^7.13.0", "@babel/parser@^7.13.10":
   version "7.13.10"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.13.10.tgz#8f8f9bf7b3afa3eabd061f7a5bcdf4fec3c48409"
   integrity sha512-0s7Mlrw9uTWkYua7xWr99Wpk2bnGa0ANleKfksYAES8LpWH4gW1OUr42vqKNf0us5UQNfru2wPqMqRITzq/SIQ==
@@ -1351,7 +1351,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/template@^7.10.4", "@babel/template@^7.12.13", "@babel/template@^7.3.3":
+"@babel/template@^7.10.4", "@babel/template@^7.12.13", "@babel/template@^7.3.3", "@babel/template@^7.4.4":
   version "7.12.13"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.12.13.tgz#530265be8a2589dbb37523844c5bcb55947fb327"
   integrity sha512-/7xxiGA57xMo/P2GVvdEumr8ONhFOhfgq2ihK3h1e6THqzTAkHbkXgB0xI9yeTfIUoH3+oAeHhqm/I43OTbbjA==
@@ -1375,7 +1375,7 @@
     globals "^11.1.0"
     lodash "^4.17.19"
 
-"@babel/traverse@^7.0.0", "@babel/traverse@^7.13.0":
+"@babel/traverse@^7.0.0", "@babel/traverse@^7.1.6", "@babel/traverse@^7.13.0":
   version "7.13.0"
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.13.0.tgz#6d95752475f86ee7ded06536de309a65fc8966cc"
   integrity sha512-xys5xi5JEhzC3RzEmSGrs/b3pJW/o87SypZ+G/PhaE7uqVQNv/jlmVIBXuoh5atqQ434LfXV+sf23Oxj0bchJQ==
@@ -1423,7 +1423,7 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@babel/types@^7.13.0":
+"@babel/types@^7.1.6", "@babel/types@^7.13.0":
   version "7.13.0"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.13.0.tgz#74424d2816f0171b4100f0ab34e9a374efdf7f80"
   integrity sha512-hE+HE8rnG1Z6Wzo+MhaKE5lM5eMx71T4EHJgku2E3xIfaULhDcxiiRxUYgwX8qwP1BBSlag+TdGOt6JAidIZTA==
@@ -2536,6 +2536,17 @@
   dependencies:
     "@graphql-tools/schema" "^7.0.0"
     "@graphql-tools/utils" "^7.5.0"
+    tslib "~2.1.0"
+
+"@graphql-tools/mock@^8.1.1":
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/mock/-/mock-8.1.1.tgz#f261f19225216bf874baaedc84e323a4f1ec8a3c"
+  integrity sha512-EOKONEp6d5hOzN5jj1/tFjf9uL5PUYBu79beEeDTo0Iwr9RtSaOeVZ67UwGhO781TkAeMPtz6sp7VFjwzhBWcQ==
+  dependencies:
+    "@graphql-tools/schema" "^7.0.0"
+    "@graphql-tools/utils" "^7.0.0"
+    fast-json-stable-stringify "^2.1.0"
+    ts-is-defined "^1.0.0"
     tslib "~2.1.0"
 
 "@graphql-tools/optimize@^1.0.1":
@@ -4361,6 +4372,15 @@ babel-jest@^26.6.0, babel-jest@^26.6.3:
     graceful-fs "^4.2.4"
     slash "^3.0.0"
 
+babel-literal-to-ast@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/babel-literal-to-ast/-/babel-literal-to-ast-2.1.0.tgz#c8b12f9c36a8cee13572d65aabf6cff8adb1e8b3"
+  integrity sha512-CxfpQ0ysQ0bZOhlaPgcWjl79Em16Rhqc6++UAFn0A3duiXmuyhhj8yyl9PYbj0I0CyjrHovdDbp2QEKT7uIMxw==
+  dependencies:
+    "@babel/parser" "^7.1.6"
+    "@babel/traverse" "^7.1.6"
+    "@babel/types" "^7.1.6"
+
 babel-loader@8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.1.0.tgz#c611d5112bd5209abe8b9fa84c3e4da25275f1c3"
@@ -4400,7 +4420,7 @@ babel-plugin-jest-hoist@^26.6.2:
     "@types/babel__core" "^7.0.0"
     "@types/babel__traverse" "^7.0.6"
 
-babel-plugin-macros@2.8.0, babel-plugin-macros@^2.6.1:
+babel-plugin-macros@2.8.0, babel-plugin-macros@^2.5.0, babel-plugin-macros@^2.6.1:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-macros/-/babel-plugin-macros-2.8.0.tgz#0f958a7cc6556b1e65344465d99111a1e5e10138"
   integrity sha512-SEP5kJpfGYqYKpBrj5XU3ahw5p5GOHJ0U5ssOSQ/WBVdwkD2Dzlce95exQTs3jOVWPPKLBN2rlEWkCK7dSmLvg==
@@ -7817,7 +7837,7 @@ graphql-subscriptions@^1.1.0:
   dependencies:
     iterall "^1.3.0"
 
-graphql-tag@^2.11.0:
+graphql-tag@^2.10.1, graphql-tag@^2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.11.0.tgz#1deb53a01c46a7eb401d6cb59dec86fa1cccbffd"
   integrity sha512-VmsD5pJqWJnQZMUeRwrDhfgoyqcfwEkvtpANqcoUG8/tOLkwNgU9mzub/Mc78OJMhHjx7gfAMTxzdG43VGg3bA==
@@ -7849,6 +7869,16 @@ graphql-ws@4.1.5:
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-4.1.5.tgz#03526b29acb54a424a9fbe300a4bd69ff65a50b3"
   integrity sha512-yUQ1AjegD1Y9jDS699kyw7Mw+9H+rILm2HoS8N5a5B5YTH93xy3yifFhAJpKGc2wb/8yGdlVy8gTcud0TPqi6Q==
+
+graphql.macro@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/graphql.macro/-/graphql.macro-1.4.2.tgz#183c347828cb0319a6fe02690b2023b30b34cbc5"
+  integrity sha512-vcIaStPgS65gp5i1M3DSBimNVkyus0Z7k4VObWAyZS319tKlpX/TEIJSWTgOZU5k8dn4RRzGoS/elQhX2E6yBw==
+  dependencies:
+    "@babel/template" "^7.4.4"
+    babel-literal-to-ast "^2.1.0"
+    babel-plugin-macros "^2.5.0"
+    graphql-tag "^2.10.1"
 
 graphql@15.3.0:
   version "15.3.0"
@@ -14522,6 +14552,13 @@ ts-invariant@^0.6.0:
     "@ungap/global-this" "^0.4.2"
     tslib "^1.9.3"
 
+ts-is-defined@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ts-is-defined/-/ts-is-defined-1.0.0.tgz#8f106af8c43ba6200beaac0a8013dc3745451ae7"
+  integrity sha512-HmzqN8xWETXnfpXyUqMf5nvcZszn9aTNjxVIJ6R2aNNg14oLo3PCi9IRhsv+vg2C7TI90M7PyjBOrg4f6/nupA==
+  dependencies:
+    ts-tiny-invariant "0.0.3"
+
 ts-log@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/ts-log/-/ts-log-2.2.3.tgz#4da5640fe25a9fb52642cd32391c886721318efb"
@@ -14543,6 +14580,11 @@ ts-pnp@1.2.0, ts-pnp@^1.1.6:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
+
+ts-tiny-invariant@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/ts-tiny-invariant/-/ts-tiny-invariant-0.0.3.tgz#6f51c153c285a7839bb59b1e5a2721fcb25a5e39"
+  integrity sha512-EiaBUsUta7PPzVKpvZurcSDgaSkymxwiUc2rhX6Wu30bws2maipT6ihbEY072dU9lz6/FoFWEc6psXdlo0xqtg==
 
 tsconfig-paths@^3.9.0:
   version "3.9.0"

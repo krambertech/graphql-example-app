@@ -23,7 +23,7 @@ const useQueryParam = (key: string, defaultValue?: string): [string, (val: strin
       query.delete(key);
     }
 
-    history.push(`${pathname}?${query.toString()}`);
+    history.replace(`${pathname}?${query.toString()}`);
   }, [queryParam, key, search, history, pathname]);
 
   return [queryParam, setQueryParam];

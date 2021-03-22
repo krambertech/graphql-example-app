@@ -7,7 +7,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const client = new ApolloClient({
-  uri: process.env.REMOTE_API_URL || 'http://localhost:8080',
+  uri: process.env.REACT_APP_API_URL || 'https://graphcountries.herokuapp.com/',
   cache: new InMemoryCache(),
 });
 

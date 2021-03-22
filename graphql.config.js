@@ -35,7 +35,7 @@ module.exports = {
           plugins: ['typescript'],
         },
         './schema.graphql': {
-          schema: process.env.REMOTE_API_URL,
+          schema: process.env.REACT_APP_API_URL,
           plugins: ['schema-ast'],
         },
         // 'src/__generated__/typeDefs.ts': {
@@ -44,7 +44,7 @@ module.exports = {
       },
     },
     endpoints: {
-      default: process.env.REMOTE_API_URL,
+      default: process.env.REACT_APP_API_URL,
     },
   },
 };

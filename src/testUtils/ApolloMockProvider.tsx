@@ -6,7 +6,6 @@ import { ApolloCache, InMemoryCache, ApolloClient, ApolloLink, ApolloProvider, O
 import { SchemaLink } from '@apollo/client/link/schema';
 import { GraphQLError } from 'graphql';
 import { loader } from 'graphql.macro';
-import { typeDefs } from '../__generated__/typeDefs';
 
 /**
  * This is needed to support _id identifier,

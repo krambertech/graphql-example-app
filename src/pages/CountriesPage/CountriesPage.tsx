@@ -15,17 +15,18 @@ import { HiSearch } from 'react-icons/hi';
 import CountryCard from '../../components/CountryCard';
 import useQueryParam from '../../utils/useQueryParam';
 import { useCountryList } from './__generated__/CountryList.query';
+import { useSubregionList } from './__generated__/SubregionList.query';
 
 const CountriesPage: React.FC = () => {
   const [subregion, setSubregion] = useQueryParam('subregion');
   const [search, setSearch] = useQueryParam('search');
   const { data, loading, error } = useCountryList({
-    variables: { filter: subregion ? { subregion: { name: subregion } } : {} },
-    returnPartialData: true,
+    variables: { filter: subregion ? { subregion: { name: subregion } } : undefined },
   });
+  const subregionList = useSubregionList();
 
   if (error) {
-    return <h1>{error}</h1>;
+    return <h1>{error?.message}</h1>;
   }
 
   const displayedCountries = data?.countries?.filter(
@@ -41,10 +42,21 @@ const CountriesPage: React.FC = () => {
       <HStack spacing={4}>
         <InputGroup width={200}>
           <InputLeftElement pointerEvents="none" children={<HiSearch />} />
-          <Input placeholder="Search" value={search} onChange={e => setSearch(e.target.value)} />
+          <Input
+            aria-label="Search countries"
+            placeholder="Search"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+          />
         </InputGroup>
-        <Select placeholder="All regions" width={250} value={subregion} onChange={e => setSubregion(e.target.value)}>
-          {data?.subregions?.map(
+        <Select
+          aria-label="Choose subregion"
+          placeholder="All regions"
+          width={250}
+          value={subregion}
+          onChange={e => setSubregion(e.target.value)}
+        >
+          {subregionList.data?.subregions?.map(
             subregion =>
               subregion?.name && (
                 <option key={subregion.name} value={subregion.name}>

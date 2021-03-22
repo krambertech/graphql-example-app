@@ -11,7 +11,7 @@ type CountryCardProps = {
 
 const CountryCard: FC<CountryCardProps> = ({ country }) => {
   return (
-    <Box borderWidth="1px" borderRadius="lg" p={6} overflow="hidden">
+    <Box borderWidth="1px" borderRadius="lg" p={6} overflow="hidden" data-testid="countryCard">
       <HStack spacing={4}>
         <Text fontSize="4xl">{country.flag?.emoji}</Text>
         <VStack spacing={2} align="start">

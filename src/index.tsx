@@ -7,7 +7,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const client = new ApolloClient({
-  uri: 'https://countries-274616.ew.r.appspot.com/',
+  uri: process.env.REMOTE_API_URL || 'http://localhost:8080',
   cache: new InMemoryCache(),
 });
 

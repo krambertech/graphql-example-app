@@ -1,11 +1,35 @@
 import React, { ReactNode } from 'react';
+import casual from 'casual';
 import { addMocksToSchema, IMocks } from '@graphql-tools/mock';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import { ApolloCache, InMemoryCache, ApolloClient, ApolloLink, ApolloProvider, Observable } from '@apollo/client';
 import { SchemaLink } from '@apollo/client/link/schema';
-import { onError } from '@apollo/client/link/error';
 import { GraphQLError } from 'graphql';
 import { loader } from 'graphql.macro';
+import { typeDefs } from '../__generated__/typeDefs';
+
+/**
+ * This is needed to support _id identifier,
+ * otherwise it gets replaced with +id and produces an error
+ */
+const typePolicies = {
+  Country: { keyFieldName: '_id' },
+  Subregion: { keyFieldName: '_id' },
+  Flag: { keyFieldName: '_id' },
+};
+
+const commonResolvers: IMocks = {
+  // scalars
+  String: () => casual.word,
+  Int: () => casual.integer,
+  Float: () => casual.double(0, 1000),
+
+  // custom types
+  Country: () => ({
+    name: () => casual.country,
+    alpha2Code: () => casual.country_code,
+  }),
+};
 
 /**
  * This implementation of mocking is heavily based on this article
@@ -20,7 +44,7 @@ type ApolloMockProviderProps = {
   loading?: boolean;
 
   /**
-   * Errors that would be returned from a request
+   * If provided, request will fail and return these errors
    */
   errors?: Partial<GraphQLError>[];
 
@@ -102,6 +126,7 @@ const ApolloMockProvider: React.FC<ApolloMockProviderProps> = ({
    */
   const schema = addMocksToSchema({
     schema: baseSchema,
+    typePolicies,
     mocks: {
       Query: () => ({
         ...queryMocks,
@@ -109,6 +134,7 @@ const ApolloMockProvider: React.FC<ApolloMockProviderProps> = ({
       Mutation: () => ({
         ...mutationMocks,
       }),
+      ...commonResolvers,
       ...resolvers,
     },
   });

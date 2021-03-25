@@ -4,11 +4,6 @@ fragment CountryCardCountry on Country {
   alpha2Code
   capital
   population
-  area
-  subregion {
-    _id
-    name
-  }
   flag {
     _id
     emoji

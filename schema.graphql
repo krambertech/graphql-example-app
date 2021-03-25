@@ -9,124 +9,18 @@ directive @MutationMeta(relationship: String, from: String, to: String) on FIELD
 directive @neo4j_ignore on FIELD_DEFINITION
 
 type Query {
-  CallingCode(
-    _id: String
-    filter: _CallingCodeFilter
-    first: Int
-    name: String
-    offset: Int
-    orderBy: [_CallingCodeOrdering]
-  ): [CallingCode]
-  Country(
-    _id: String
-    alpha2Code: String
-    alpha3Code: String
-    area: Float
-    capital: String
-    demonym: String
-    filter: _CountryFilter
-    first: Int
-    gini: Float
-    location: _Neo4jPointInput
-    name: String
-    nameTranslation: String
-    nativeName: String
-    numericCode: String
-    offset: Int
-    orderBy: [_CountryOrdering]
-    population: Float
-    populationDensity: Float
-  ): [Country]
-  Currency(
-    _id: String
-    code: String
-    filter: _CurrencyFilter
-    first: Int
-    name: String
-    offset: Int
-    orderBy: [_CurrencyOrdering]
-    symbol: String
-  ): [Currency]
-  DistanceToOtherCountry(
-    _id: String
-    countryName: String
-    distanceInKm: Float
-    filter: _DistanceToOtherCountryFilter
-    first: Int
-    offset: Int
-    orderBy: [_DistanceToOtherCountryOrdering]
-  ): [DistanceToOtherCountry]
-  Flag(
-    _id: String
-    emoji: String
-    emojiUnicode: String
-    filter: _FlagFilter
-    first: Int
-    offset: Int
-    orderBy: [_FlagOrdering]
-    svgFile: String
-  ): [Flag]
-  Language(
-    _id: String
-    filter: _LanguageFilter
-    first: Int
-    iso639_1: String
-    iso639_2: String
-    name: String
-    nativeName: String
-    offset: Int
-    orderBy: [_LanguageOrdering]
-  ): [Language]
-  Region(
-    _id: String
-    filter: _RegionFilter
-    first: Int
-    name: String
-    offset: Int
-    orderBy: [_RegionOrdering]
-  ): [Region]
-  RegionalBloc(
-    _id: String
-    acronym: String
-    filter: _RegionalBlocFilter
-    first: Int
-    name: String
-    offset: Int
-    orderBy: [_RegionalBlocOrdering]
-  ): [RegionalBloc]
-  Subregion(
-    _id: String
-    filter: _SubregionFilter
-    first: Int
-    name: String
-    offset: Int
-    orderBy: [_SubregionOrdering]
-  ): [Subregion]
-  Timezone(
-    _id: String
-    filter: _TimezoneFilter
-    first: Int
-    name: String
-    offset: Int
-    orderBy: [_TimezoneOrdering]
-  ): [Timezone]
-  TopLevelDomain(
-    _id: String
-    filter: _TopLevelDomainFilter
-    first: Int
-    name: String
-    offset: Int
-    orderBy: [_TopLevelDomainOrdering]
-  ): [TopLevelDomain]
-  Translation(
-    _id: String
-    filter: _TranslationFilter
-    first: Int
-    languageCode: String
-    offset: Int
-    orderBy: [_TranslationOrdering]
-    value: String
-  ): [Translation]
+  CallingCode(_id: String, filter: _CallingCodeFilter, first: Int, name: String, offset: Int, orderBy: [_CallingCodeOrdering]): [CallingCode]
+  Country(_id: String, alpha2Code: String, alpha3Code: String, area: Float, capital: String, demonym: String, filter: _CountryFilter, first: Int, gini: Float, location: _Neo4jPointInput, name: String, nameTranslation: String, nativeName: String, numericCode: String, offset: Int, orderBy: [_CountryOrdering], population: Float, populationDensity: Float): [Country]
+  Currency(_id: String, code: String, filter: _CurrencyFilter, first: Int, name: String, offset: Int, orderBy: [_CurrencyOrdering], symbol: String): [Currency]
+  DistanceToOtherCountry(_id: String, countryName: String, distanceInKm: Float, filter: _DistanceToOtherCountryFilter, first: Int, offset: Int, orderBy: [_DistanceToOtherCountryOrdering]): [DistanceToOtherCountry]
+  Flag(_id: String, emoji: String, emojiUnicode: String, filter: _FlagFilter, first: Int, offset: Int, orderBy: [_FlagOrdering], svgFile: String): [Flag]
+  Language(_id: String, filter: _LanguageFilter, first: Int, iso639_1: String, iso639_2: String, name: String, nativeName: String, offset: Int, orderBy: [_LanguageOrdering]): [Language]
+  Region(_id: String, filter: _RegionFilter, first: Int, name: String, offset: Int, orderBy: [_RegionOrdering]): [Region]
+  RegionalBloc(_id: String, acronym: String, filter: _RegionalBlocFilter, first: Int, name: String, offset: Int, orderBy: [_RegionalBlocOrdering]): [RegionalBloc]
+  Subregion(_id: String, filter: _SubregionFilter, first: Int, name: String, offset: Int, orderBy: [_SubregionOrdering]): [Subregion]
+  Timezone(_id: String, filter: _TimezoneFilter, first: Int, name: String, offset: Int, orderBy: [_TimezoneOrdering]): [Timezone]
+  TopLevelDomain(_id: String, filter: _TopLevelDomainFilter, first: Int, name: String, offset: Int, orderBy: [_TopLevelDomainOrdering]): [TopLevelDomain]
+  Translation(_id: String, filter: _TranslationFilter, first: Int, languageCode: String, offset: Int, orderBy: [_TranslationOrdering], value: String): [Translation]
 }
 
 input _Neo4jPointInput {
@@ -731,11 +625,7 @@ type Country {
   identifies residents or natives of a particular place, usually derived from the name of the place or that of an ethnic group. https://en.m.wikipedia.org/wiki/Demonym
   """
   demonym: String!
-  distanceToOtherCountries(
-    first: Int
-    offset: Int
-    orderBy: [_DistanceToOtherCountryOrdering]
-  ): [DistanceToOtherCountry]
+  distanceToOtherCountries(first: Int, offset: Int, orderBy: [_DistanceToOtherCountryOrdering]): [DistanceToOtherCountry]
   flag(filter: _FlagFilter): Flag
 
   """
@@ -751,33 +641,21 @@ type Country {
   officialLanguages(filter: _LanguageFilter, first: Int, offset: Int, orderBy: [_LanguageOrdering]): [Language]
   population: Float!
 
-  """
-  The population per square kilometer
-  """
+  """The population per square kilometer"""
   populationDensity: Float
   regionalBlocs(filter: _RegionalBlocFilter, first: Int, offset: Int, orderBy: [_RegionalBlocOrdering]): [RegionalBloc]
 
   """
   Shortest path to go from one country to another with the least border crossing as possible
   """
-  shortestPathToOtherCountry(
-    first: Int
-    offset: Int
-    orderBy: [_CountryOrdering]
-    otherCountryAlpha2Code: String!
-  ): [Country]
+  shortestPathToOtherCountry(first: Int, offset: Int, orderBy: [_CountryOrdering], otherCountryAlpha2Code: String!): [Country]
   subregion(filter: _SubregionFilter): Subregion
   timezones(filter: _TimezoneFilter, first: Int, offset: Int, orderBy: [_TimezoneOrdering]): [Timezone]
 
   """
   A country code top-level domain (ccTLD) is an Internet top-level domain generally used or reserved for a country, sovereign state, or dependent territory identified with a country code. https://en.m.wikipedia.org/wiki/Country_code_top-level_domain
   """
-  topLevelDomains(
-    filter: _TopLevelDomainFilter
-    first: Int
-    offset: Int
-    orderBy: [_TopLevelDomainOrdering]
-  ): [TopLevelDomain]
+  topLevelDomains(filter: _TopLevelDomainFilter, first: Int, offset: Int, orderBy: [_TopLevelDomainOrdering]): [TopLevelDomain]
 }
 
 enum AreaUnit {
@@ -787,9 +665,7 @@ enum AreaUnit {
 }
 
 type Area {
-  """
-  The population per square <your selected unit>
-  """
+  """The population per square <your selected unit>"""
   populationDensity: Float
   unit: String
   value: Float
@@ -977,9 +853,7 @@ enum _DistanceToOtherCountryOrdering {
 type DistanceToOtherCountry {
   _id: String
 
-  """
-  Sorry can't return the full country type :/
-  """
+  """Sorry can't return the full country type :/"""
   countryName: String
   distanceInKm: Float
 }

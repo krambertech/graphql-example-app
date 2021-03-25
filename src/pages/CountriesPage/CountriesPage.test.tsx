@@ -48,36 +48,6 @@ test('shows loaded countries', async () => {
   expect(country2).toBeDefined();
 });
 
-test('allows to search countries', async () => {
-  const queryMocks = {
-    Country: () => [
-      { name: 'Germany' },
-      { name: 'Estonia' },
-      { name: 'France' },
-      { name: 'Italy' },
-      { name: 'Lithuania' },
-    ],
-  };
-
-  renderWithProviders(
-    <ApolloMockProvider queryMocks={queryMocks}>
-      <CountriesPage />
-    </ApolloMockProvider>,
-  );
-
-  const countryCards = await screen.findAllByTestId('countryCard');
-  expect(countryCards).toHaveLength(5);
-
-  const searchField = await screen.findByRole('textbox', { name: /search/i });
-  userEvent.type(searchField, 'it');
-
-  const countryCardsAfterSearch = await screen.findAllByTestId('countryCard');
-  expect(countryCardsAfterSearch).toHaveLength(2);
-
-  expect(screen.getByRole('link', { name: /Italy/i })).toBeDefined();
-  expect(screen.getByRole('link', { name: /Lithuania/i })).toBeDefined();
-});
-
 test('allows to filter by subregion', async () => {
   const queryMocks = {
     Country: jest

@@ -15,7 +15,7 @@
     "testing-library/no-await-sync-events": "error"
   },
 
-  // Overrides or GraphQL Eslint plugin
+  // Overrides for GraphQL Eslint plugin
   // https://github.com/dotansimha/graphql-eslint
   "overrides": [
     {

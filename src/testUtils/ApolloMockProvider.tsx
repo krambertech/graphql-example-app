@@ -34,7 +34,6 @@ const commonResolvers: IMocks = {
  * This implementation of mocking is heavily based on this article
  * https://www.freecodecamp.org/news/a-new-approach-to-mocking-graphql-data-1ef49de3d491/
  */
-
 type ApolloMockProviderProps = {
   /**
    * GraphQL request will be in loading indefinitely, useful to test

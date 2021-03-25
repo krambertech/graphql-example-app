@@ -5,20 +5,20 @@
   "scripts": {
     "start": "react-scripts start",
     "lint": "eslint ./src/**/*.{ts,tsx}",
+    "lint:fix": "eslint ./src/**/*.{ts,tsx} --fix",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "type-check": "tsc --noEmit",
+    "dev": "concurrently \"yarn start\" \"yarn graphql:generate:watch\"",
     "graphql:generate": "graphql codegen",
     "graphql:generate:watch": "graphql codegen --watch",
-    "dev": "concurrently \"yarn start\" \"yarn graphql:generate:watch\"",
     "graphql:coverage": "graphql coverage",
     "graphql:validate": "graphql validate"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write"
-    ]
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md, graphql}": "prettier --write",
+    "src/**/*.{js,jsx,ts,tsx,graphql}": "yarn run lint:fix"
   },
   "dependencies": {
     "@apollo/client": "^3.3.13",

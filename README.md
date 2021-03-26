@@ -1,6 +1,6 @@
 # Apollo Example App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). This project uses TypeScript, Apollo, Chakra UI and graphql-tools.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). This project uses TypeScript, Apollo, Chakra UI and graphql-tools. See slides for the talk [here](https://krambertech.github.io/graphql-react-talk/index.html)
 
 ## Running locally
 

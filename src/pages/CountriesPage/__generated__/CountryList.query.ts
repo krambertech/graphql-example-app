@@ -1,6 +1,5 @@
 import * as Types from '../../../__generated__/types';
 
-import { CountryCardCountry } from '../../../components/CountryCard/__generated__/CountryCardCountry.fragment';
 import { DocumentNode } from 'graphql';
 import * as Apollo from '@apollo/client';
 const defaultOptions =  {}
@@ -9,13 +8,10 @@ export type CountryListVariables = Types.Exact<{
 }>;
 
 
-export type CountryList = { __typename: 'Query', countries?: Types.Maybe<Array<Types.Maybe<(
-    { __typename: 'Country', _id?: Types.Maybe<string>, name: string }
-    & CountryCardCountry
-  )>>> };
+export type CountryList = { __typename: 'Query', countries?: Types.Maybe<Array<Types.Maybe<{ __typename: 'Country', _id?: Types.Maybe<string>, name: string, alpha2Code: string, capital: string, population: number, flag?: Types.Maybe<{ __typename: 'Flag', _id?: Types.Maybe<string>, emoji: string }> }>>> };
 
 
-export const CountryListDocument: DocumentNode = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"CountryList"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filter"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"_CountryFilter"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"countries"},"name":{"kind":"Name","value":"Country"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filter"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filter"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"CountryCardCountry"}}]}}]}},...CountryCardCountry.definitions]};
+export const CountryListDocument: DocumentNode = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"CountryList"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filter"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"_CountryFilter"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"countries"},"name":{"kind":"Name","value":"Country"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filter"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filter"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"alpha2Code"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"alpha2Code"}},{"kind":"Field","name":{"kind":"Name","value":"capital"}},{"kind":"Field","name":{"kind":"Name","value":"population"}},{"kind":"Field","name":{"kind":"Name","value":"flag"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"emoji"}}]}}]}}]}}]};
 
 /**
  * __useCountryList__

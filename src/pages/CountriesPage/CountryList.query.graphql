@@ -2,6 +2,14 @@ query CountryList($filter: _CountryFilter) {
   countries: Country(filter: $filter) {
     _id
     name
-    ...CountryCardCountry
+    alpha2Code
+    name
+    alpha2Code
+    capital
+    population
+    flag {
+      _id
+      emoji
+    }
   }
 }

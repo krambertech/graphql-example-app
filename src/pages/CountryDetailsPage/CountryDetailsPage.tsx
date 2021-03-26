@@ -51,7 +51,7 @@ const CountryDetailsPage: React.FC = () => {
             All countries
           </Button>
         </HStack>
-        <Text fontSize="xl">{country.nativeName}</Text>
+        <Text fontSize="xl">-</Text>
       </Stack>
 
       <SimpleGrid columns={2} spacingX={8} spacingY={2}>

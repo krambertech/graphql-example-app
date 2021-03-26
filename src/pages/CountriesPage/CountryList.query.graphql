@@ -3,8 +3,6 @@ query CountryList($filter: _CountryFilter) {
     _id
     name
     alpha2Code
-    name
-    alpha2Code
     capital
     population
     flag {

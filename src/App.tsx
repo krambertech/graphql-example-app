@@ -1,9 +1,9 @@
-import React from 'react';
+import { FC } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CountriesPage from './pages/CountriesPage';
 import CountryDetailsPage from './pages/CountryDetailsPage';
 
-const App: React.FC = () => {
+const App: FC = () => {
   return (
     <Router>
       <Switch>

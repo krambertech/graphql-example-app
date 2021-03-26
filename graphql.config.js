@@ -1,6 +1,8 @@
 // eslint-disable-next-line
 require('dotenv').config();
 
+const apiUrl = process.env.REACT_APP_API_URL || 'https://graphcountries.herokuapp.com/';
+
 module.exports = {
   overwrite: true,
 
@@ -42,7 +44,7 @@ module.exports = {
         // In order to keep local schema up-to-date with remote one, here we
         // fetch remove schema and save it locally
         './schema.graphql': {
-          schema: process.env.REACT_APP_API_URL,
+          schema: apiUrl,
           plugins: ['schema-ast'],
         },
       },
@@ -50,7 +52,7 @@ module.exports = {
     // This endpoint configuration needed for VScode and other plugins to work, then you
     // have an ability to run requests right in IDE
     endpoints: {
-      default: process.env.REACT_APP_API_URL,
+      default: apiUrl,
     },
   },
 };

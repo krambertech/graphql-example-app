@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { HiFlag, HiUserGroup } from 'react-icons/hi';
 import { Box, HStack, Link, Text, VStack } from '@chakra-ui/react';

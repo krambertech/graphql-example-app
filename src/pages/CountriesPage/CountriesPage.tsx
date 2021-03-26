@@ -10,7 +10,6 @@ import {
   Spinner,
   Stack,
 } from '@chakra-ui/react';
-import React from 'react';
 import { HiSearch } from 'react-icons/hi';
 import CountryCard from '../../components/CountryCard';
 import useQueryParam from '../../utils/useQueryParam';

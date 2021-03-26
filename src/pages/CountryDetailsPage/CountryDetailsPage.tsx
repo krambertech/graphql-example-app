@@ -1,5 +1,4 @@
 import { Center, Heading, Link, SimpleGrid, Spinner, Stack, Text, Box, HStack, Button } from '@chakra-ui/react';
-import React from 'react';
 import { HiFlag, HiLocationMarker, HiUserGroup, HiArrowRight } from 'react-icons/hi';
 import { FiCrop } from 'react-icons/fi';
 import { useParams, Link as RouterLink } from 'react-router-dom';

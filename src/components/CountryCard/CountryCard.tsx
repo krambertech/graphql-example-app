@@ -2,11 +2,11 @@ import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { HiFlag, HiUserGroup } from 'react-icons/hi';
 import { Box, HStack, Link, Text, VStack } from '@chakra-ui/react';
-import { CountryCardCountry } from './__generated__/CountryCardCountry.fragment';
 import formatNumber from '../../utils/formatNumber';
+import { Country } from '../../__generated__/types';
 
 type CountryCardProps = {
-  country: CountryCardCountry;
+  country: Partial<Country>;
 };
 
 const CountryCard: FC<CountryCardProps> = ({ country }) => {
@@ -23,9 +23,11 @@ const CountryCard: FC<CountryCardProps> = ({ country }) => {
               <HiFlag />
               <Text>{country.capital || '-'}</Text>
             </HStack>
-            <HStack spacing={1}>
-              <HiUserGroup /> <Text>{formatNumber(country.population)}</Text>
-            </HStack>
+            {country.population && (
+              <HStack spacing={1}>
+                <HiUserGroup /> <Text>{formatNumber(country.population)}</Text>
+              </HStack>
+            )}
           </HStack>
         </VStack>
       </HStack>

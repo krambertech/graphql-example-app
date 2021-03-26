@@ -2,7 +2,6 @@ query CountryDetails($code: String!) {
   countries: Country(alpha2Code: $code) {
     _id
     name
-    nativeName
     capital
     population
     area
@@ -26,7 +25,14 @@ query CountryDetails($code: String!) {
     }
     borders {
       _id
-      ...CountryCardCountry
+      name
+      alpha2Code
+      capital
+      population
+      flag {
+        _id
+        emoji
+      }
     }
   }
 }

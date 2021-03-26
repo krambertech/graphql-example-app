@@ -1,6 +1,0 @@
-import * as Types from '../../../__generated__/types';
-
-import { DocumentNode } from 'graphql';
-export type CountryCardCountry = { __typename: 'Country', _id?: Types.Maybe<string>, name: string, alpha2Code: string, capital: string, population: number, flag?: Types.Maybe<{ __typename: 'Flag', _id?: Types.Maybe<string>, emoji: string }> };
-
-export const CountryCardCountry: DocumentNode = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"CountryCardCountry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Country"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"alpha2Code"}},{"kind":"Field","name":{"kind":"Name","value":"capital"}},{"kind":"Field","name":{"kind":"Name","value":"population"}},{"kind":"Field","name":{"kind":"Name","value":"flag"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"emoji"}}]}}]}}]};

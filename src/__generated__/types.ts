@@ -16,11 +16,174 @@ export type Scalars = {
 
 
 
-export enum AreaUnit {
-  SQUARE_KILOMETERS = 'SQUARE_KILOMETERS',
-  SQUARE_METERS = 'SQUARE_METERS',
-  SQUARE_MILES = 'SQUARE_MILES'
-}
+export type Query = {
+  __typename?: 'Query';
+  CallingCode?: Maybe<Array<Maybe<CallingCode>>>;
+  Country?: Maybe<Array<Maybe<Country>>>;
+  Currency?: Maybe<Array<Maybe<Currency>>>;
+  DistanceToOtherCountry?: Maybe<Array<Maybe<DistanceToOtherCountry>>>;
+  Flag?: Maybe<Array<Maybe<Flag>>>;
+  Language?: Maybe<Array<Maybe<Language>>>;
+  Region?: Maybe<Array<Maybe<Region>>>;
+  RegionalBloc?: Maybe<Array<Maybe<RegionalBloc>>>;
+  Subregion?: Maybe<Array<Maybe<Subregion>>>;
+  Timezone?: Maybe<Array<Maybe<Timezone>>>;
+  TopLevelDomain?: Maybe<Array<Maybe<TopLevelDomain>>>;
+  Translation?: Maybe<Array<Maybe<Translation>>>;
+};
+
+
+export type QueryCallingCodeArgs = {
+  _id?: Maybe<Scalars['String']>;
+  filter?: Maybe<_CallingCodeFilter>;
+  first?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_CallingCodeOrdering>>>;
+};
+
+
+export type QueryCountryArgs = {
+  _id?: Maybe<Scalars['String']>;
+  alpha2Code?: Maybe<Scalars['String']>;
+  alpha3Code?: Maybe<Scalars['String']>;
+  area?: Maybe<Scalars['Float']>;
+  capital?: Maybe<Scalars['String']>;
+  demonym?: Maybe<Scalars['String']>;
+  filter?: Maybe<_CountryFilter>;
+  first?: Maybe<Scalars['Int']>;
+  gini?: Maybe<Scalars['Float']>;
+  location?: Maybe<_Neo4jPointInput>;
+  name?: Maybe<Scalars['String']>;
+  nameTranslation?: Maybe<Scalars['String']>;
+  nativeName?: Maybe<Scalars['String']>;
+  numericCode?: Maybe<Scalars['String']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_CountryOrdering>>>;
+  population?: Maybe<Scalars['Float']>;
+  populationDensity?: Maybe<Scalars['Float']>;
+};
+
+
+export type QueryCurrencyArgs = {
+  _id?: Maybe<Scalars['String']>;
+  code?: Maybe<Scalars['String']>;
+  filter?: Maybe<_CurrencyFilter>;
+  first?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_CurrencyOrdering>>>;
+  symbol?: Maybe<Scalars['String']>;
+};
+
+
+export type QueryDistanceToOtherCountryArgs = {
+  _id?: Maybe<Scalars['String']>;
+  countryName?: Maybe<Scalars['String']>;
+  distanceInKm?: Maybe<Scalars['Float']>;
+  filter?: Maybe<_DistanceToOtherCountryFilter>;
+  first?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_DistanceToOtherCountryOrdering>>>;
+};
+
+
+export type QueryFlagArgs = {
+  _id?: Maybe<Scalars['String']>;
+  emoji?: Maybe<Scalars['String']>;
+  emojiUnicode?: Maybe<Scalars['String']>;
+  filter?: Maybe<_FlagFilter>;
+  first?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_FlagOrdering>>>;
+  svgFile?: Maybe<Scalars['String']>;
+};
+
+
+export type QueryLanguageArgs = {
+  _id?: Maybe<Scalars['String']>;
+  filter?: Maybe<_LanguageFilter>;
+  first?: Maybe<Scalars['Int']>;
+  iso639_1?: Maybe<Scalars['String']>;
+  iso639_2?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  nativeName?: Maybe<Scalars['String']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_LanguageOrdering>>>;
+};
+
+
+export type QueryRegionArgs = {
+  _id?: Maybe<Scalars['String']>;
+  filter?: Maybe<_RegionFilter>;
+  first?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_RegionOrdering>>>;
+};
+
+
+export type QueryRegionalBlocArgs = {
+  _id?: Maybe<Scalars['String']>;
+  acronym?: Maybe<Scalars['String']>;
+  filter?: Maybe<_RegionalBlocFilter>;
+  first?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_RegionalBlocOrdering>>>;
+};
+
+
+export type QuerySubregionArgs = {
+  _id?: Maybe<Scalars['String']>;
+  filter?: Maybe<_SubregionFilter>;
+  first?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_SubregionOrdering>>>;
+};
+
+
+export type QueryTimezoneArgs = {
+  _id?: Maybe<Scalars['String']>;
+  filter?: Maybe<_TimezoneFilter>;
+  first?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_TimezoneOrdering>>>;
+};
+
+
+export type QueryTopLevelDomainArgs = {
+  _id?: Maybe<Scalars['String']>;
+  filter?: Maybe<_TopLevelDomainFilter>;
+  first?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_TopLevelDomainOrdering>>>;
+};
+
+
+export type QueryTranslationArgs = {
+  _id?: Maybe<Scalars['String']>;
+  filter?: Maybe<_TranslationFilter>;
+  first?: Maybe<Scalars['Int']>;
+  languageCode?: Maybe<Scalars['String']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_TranslationOrdering>>>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type _Neo4jPointInput = {
+  crs?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['Float']>;
+  latitude?: Maybe<Scalars['Float']>;
+  longitude?: Maybe<Scalars['Float']>;
+  srid?: Maybe<Scalars['Int']>;
+  x?: Maybe<Scalars['Float']>;
+  y?: Maybe<Scalars['Float']>;
+  z?: Maybe<Scalars['Float']>;
+};
 
 export enum _CountryOrdering {
   _id_asc = '_id_asc',
@@ -245,6 +408,346 @@ export type _CountryFilter = {
   topLevelDomains_some?: Maybe<_TopLevelDomainFilter>;
 };
 
+export type _Neo4jPointDistanceFilter = {
+  distance: Scalars['Float'];
+  point: _Neo4jPointInput;
+};
+
+export type _TranslationFilter = {
+  AND?: Maybe<Array<_TranslationFilter>>;
+  OR?: Maybe<Array<_TranslationFilter>>;
+  languageCode?: Maybe<Scalars['String']>;
+  languageCode_contains?: Maybe<Scalars['String']>;
+  languageCode_ends_with?: Maybe<Scalars['String']>;
+  languageCode_in?: Maybe<Array<Scalars['String']>>;
+  languageCode_not?: Maybe<Scalars['String']>;
+  languageCode_not_contains?: Maybe<Scalars['String']>;
+  languageCode_not_ends_with?: Maybe<Scalars['String']>;
+  languageCode_not_in?: Maybe<Array<Scalars['String']>>;
+  languageCode_not_starts_with?: Maybe<Scalars['String']>;
+  languageCode_starts_with?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+  value_contains?: Maybe<Scalars['String']>;
+  value_ends_with?: Maybe<Scalars['String']>;
+  value_in?: Maybe<Array<Scalars['String']>>;
+  value_not?: Maybe<Scalars['String']>;
+  value_not_contains?: Maybe<Scalars['String']>;
+  value_not_ends_with?: Maybe<Scalars['String']>;
+  value_not_in?: Maybe<Array<Scalars['String']>>;
+  value_not_starts_with?: Maybe<Scalars['String']>;
+  value_starts_with?: Maybe<Scalars['String']>;
+};
+
+export type _TopLevelDomainFilter = {
+  AND?: Maybe<Array<_TopLevelDomainFilter>>;
+  OR?: Maybe<Array<_TopLevelDomainFilter>>;
+  countries?: Maybe<_CountryFilter>;
+  countries_every?: Maybe<_CountryFilter>;
+  countries_in?: Maybe<Array<_CountryFilter>>;
+  countries_none?: Maybe<_CountryFilter>;
+  countries_not?: Maybe<_CountryFilter>;
+  countries_not_in?: Maybe<Array<_CountryFilter>>;
+  countries_single?: Maybe<_CountryFilter>;
+  countries_some?: Maybe<_CountryFilter>;
+  name?: Maybe<Scalars['String']>;
+  name_contains?: Maybe<Scalars['String']>;
+  name_ends_with?: Maybe<Scalars['String']>;
+  name_in?: Maybe<Array<Scalars['String']>>;
+  name_not?: Maybe<Scalars['String']>;
+  name_not_contains?: Maybe<Scalars['String']>;
+  name_not_ends_with?: Maybe<Scalars['String']>;
+  name_not_in?: Maybe<Array<Scalars['String']>>;
+  name_not_starts_with?: Maybe<Scalars['String']>;
+  name_starts_with?: Maybe<Scalars['String']>;
+};
+
+export type _CallingCodeFilter = {
+  AND?: Maybe<Array<_CallingCodeFilter>>;
+  OR?: Maybe<Array<_CallingCodeFilter>>;
+  countries?: Maybe<_CountryFilter>;
+  countries_every?: Maybe<_CountryFilter>;
+  countries_in?: Maybe<Array<_CountryFilter>>;
+  countries_none?: Maybe<_CountryFilter>;
+  countries_not?: Maybe<_CountryFilter>;
+  countries_not_in?: Maybe<Array<_CountryFilter>>;
+  countries_single?: Maybe<_CountryFilter>;
+  countries_some?: Maybe<_CountryFilter>;
+  name?: Maybe<Scalars['String']>;
+  name_contains?: Maybe<Scalars['String']>;
+  name_ends_with?: Maybe<Scalars['String']>;
+  name_in?: Maybe<Array<Scalars['String']>>;
+  name_not?: Maybe<Scalars['String']>;
+  name_not_contains?: Maybe<Scalars['String']>;
+  name_not_ends_with?: Maybe<Scalars['String']>;
+  name_not_in?: Maybe<Array<Scalars['String']>>;
+  name_not_starts_with?: Maybe<Scalars['String']>;
+  name_starts_with?: Maybe<Scalars['String']>;
+};
+
+export type _TimezoneFilter = {
+  AND?: Maybe<Array<_TimezoneFilter>>;
+  OR?: Maybe<Array<_TimezoneFilter>>;
+  countries?: Maybe<_CountryFilter>;
+  countries_every?: Maybe<_CountryFilter>;
+  countries_in?: Maybe<Array<_CountryFilter>>;
+  countries_none?: Maybe<_CountryFilter>;
+  countries_not?: Maybe<_CountryFilter>;
+  countries_not_in?: Maybe<Array<_CountryFilter>>;
+  countries_single?: Maybe<_CountryFilter>;
+  countries_some?: Maybe<_CountryFilter>;
+  name?: Maybe<Scalars['String']>;
+  name_contains?: Maybe<Scalars['String']>;
+  name_ends_with?: Maybe<Scalars['String']>;
+  name_in?: Maybe<Array<Scalars['String']>>;
+  name_not?: Maybe<Scalars['String']>;
+  name_not_contains?: Maybe<Scalars['String']>;
+  name_not_ends_with?: Maybe<Scalars['String']>;
+  name_not_in?: Maybe<Array<Scalars['String']>>;
+  name_not_starts_with?: Maybe<Scalars['String']>;
+  name_starts_with?: Maybe<Scalars['String']>;
+};
+
+export type _SubregionFilter = {
+  AND?: Maybe<Array<_SubregionFilter>>;
+  OR?: Maybe<Array<_SubregionFilter>>;
+  countries?: Maybe<_CountryFilter>;
+  countries_every?: Maybe<_CountryFilter>;
+  countries_in?: Maybe<Array<_CountryFilter>>;
+  countries_none?: Maybe<_CountryFilter>;
+  countries_not?: Maybe<_CountryFilter>;
+  countries_not_in?: Maybe<Array<_CountryFilter>>;
+  countries_single?: Maybe<_CountryFilter>;
+  countries_some?: Maybe<_CountryFilter>;
+  name?: Maybe<Scalars['String']>;
+  name_contains?: Maybe<Scalars['String']>;
+  name_ends_with?: Maybe<Scalars['String']>;
+  name_in?: Maybe<Array<Scalars['String']>>;
+  name_not?: Maybe<Scalars['String']>;
+  name_not_contains?: Maybe<Scalars['String']>;
+  name_not_ends_with?: Maybe<Scalars['String']>;
+  name_not_in?: Maybe<Array<Scalars['String']>>;
+  name_not_starts_with?: Maybe<Scalars['String']>;
+  name_starts_with?: Maybe<Scalars['String']>;
+  region?: Maybe<_RegionFilter>;
+  region_in?: Maybe<Array<_RegionFilter>>;
+  region_not?: Maybe<_RegionFilter>;
+  region_not_in?: Maybe<Array<_RegionFilter>>;
+};
+
+export type _RegionFilter = {
+  AND?: Maybe<Array<_RegionFilter>>;
+  OR?: Maybe<Array<_RegionFilter>>;
+  name?: Maybe<Scalars['String']>;
+  name_contains?: Maybe<Scalars['String']>;
+  name_ends_with?: Maybe<Scalars['String']>;
+  name_in?: Maybe<Array<Scalars['String']>>;
+  name_not?: Maybe<Scalars['String']>;
+  name_not_contains?: Maybe<Scalars['String']>;
+  name_not_ends_with?: Maybe<Scalars['String']>;
+  name_not_in?: Maybe<Array<Scalars['String']>>;
+  name_not_starts_with?: Maybe<Scalars['String']>;
+  name_starts_with?: Maybe<Scalars['String']>;
+  subregions?: Maybe<_SubregionFilter>;
+  subregions_every?: Maybe<_SubregionFilter>;
+  subregions_in?: Maybe<Array<_SubregionFilter>>;
+  subregions_none?: Maybe<_SubregionFilter>;
+  subregions_not?: Maybe<_SubregionFilter>;
+  subregions_not_in?: Maybe<Array<_SubregionFilter>>;
+  subregions_single?: Maybe<_SubregionFilter>;
+  subregions_some?: Maybe<_SubregionFilter>;
+};
+
+export type _LanguageFilter = {
+  AND?: Maybe<Array<_LanguageFilter>>;
+  OR?: Maybe<Array<_LanguageFilter>>;
+  countries?: Maybe<_CountryFilter>;
+  countries_every?: Maybe<_CountryFilter>;
+  countries_in?: Maybe<Array<_CountryFilter>>;
+  countries_none?: Maybe<_CountryFilter>;
+  countries_not?: Maybe<_CountryFilter>;
+  countries_not_in?: Maybe<Array<_CountryFilter>>;
+  countries_single?: Maybe<_CountryFilter>;
+  countries_some?: Maybe<_CountryFilter>;
+  iso639_1?: Maybe<Scalars['String']>;
+  iso639_1_contains?: Maybe<Scalars['String']>;
+  iso639_1_ends_with?: Maybe<Scalars['String']>;
+  iso639_1_in?: Maybe<Array<Scalars['String']>>;
+  iso639_1_not?: Maybe<Scalars['String']>;
+  iso639_1_not_contains?: Maybe<Scalars['String']>;
+  iso639_1_not_ends_with?: Maybe<Scalars['String']>;
+  iso639_1_not_in?: Maybe<Array<Scalars['String']>>;
+  iso639_1_not_starts_with?: Maybe<Scalars['String']>;
+  iso639_1_starts_with?: Maybe<Scalars['String']>;
+  iso639_2?: Maybe<Scalars['String']>;
+  iso639_2_contains?: Maybe<Scalars['String']>;
+  iso639_2_ends_with?: Maybe<Scalars['String']>;
+  iso639_2_in?: Maybe<Array<Scalars['String']>>;
+  iso639_2_not?: Maybe<Scalars['String']>;
+  iso639_2_not_contains?: Maybe<Scalars['String']>;
+  iso639_2_not_ends_with?: Maybe<Scalars['String']>;
+  iso639_2_not_in?: Maybe<Array<Scalars['String']>>;
+  iso639_2_not_starts_with?: Maybe<Scalars['String']>;
+  iso639_2_starts_with?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  name_contains?: Maybe<Scalars['String']>;
+  name_ends_with?: Maybe<Scalars['String']>;
+  name_in?: Maybe<Array<Scalars['String']>>;
+  name_not?: Maybe<Scalars['String']>;
+  name_not_contains?: Maybe<Scalars['String']>;
+  name_not_ends_with?: Maybe<Scalars['String']>;
+  name_not_in?: Maybe<Array<Scalars['String']>>;
+  name_not_starts_with?: Maybe<Scalars['String']>;
+  name_starts_with?: Maybe<Scalars['String']>;
+  nativeName?: Maybe<Scalars['String']>;
+  nativeName_contains?: Maybe<Scalars['String']>;
+  nativeName_ends_with?: Maybe<Scalars['String']>;
+  nativeName_in?: Maybe<Array<Scalars['String']>>;
+  nativeName_not?: Maybe<Scalars['String']>;
+  nativeName_not_contains?: Maybe<Scalars['String']>;
+  nativeName_not_ends_with?: Maybe<Scalars['String']>;
+  nativeName_not_in?: Maybe<Array<Scalars['String']>>;
+  nativeName_not_starts_with?: Maybe<Scalars['String']>;
+  nativeName_starts_with?: Maybe<Scalars['String']>;
+};
+
+export type _CurrencyFilter = {
+  AND?: Maybe<Array<_CurrencyFilter>>;
+  OR?: Maybe<Array<_CurrencyFilter>>;
+  code?: Maybe<Scalars['String']>;
+  code_contains?: Maybe<Scalars['String']>;
+  code_ends_with?: Maybe<Scalars['String']>;
+  code_in?: Maybe<Array<Scalars['String']>>;
+  code_not?: Maybe<Scalars['String']>;
+  code_not_contains?: Maybe<Scalars['String']>;
+  code_not_ends_with?: Maybe<Scalars['String']>;
+  code_not_in?: Maybe<Array<Scalars['String']>>;
+  code_not_starts_with?: Maybe<Scalars['String']>;
+  code_starts_with?: Maybe<Scalars['String']>;
+  countries?: Maybe<_CountryFilter>;
+  countries_every?: Maybe<_CountryFilter>;
+  countries_in?: Maybe<Array<_CountryFilter>>;
+  countries_none?: Maybe<_CountryFilter>;
+  countries_not?: Maybe<_CountryFilter>;
+  countries_not_in?: Maybe<Array<_CountryFilter>>;
+  countries_single?: Maybe<_CountryFilter>;
+  countries_some?: Maybe<_CountryFilter>;
+  name?: Maybe<Scalars['String']>;
+  name_contains?: Maybe<Scalars['String']>;
+  name_ends_with?: Maybe<Scalars['String']>;
+  name_in?: Maybe<Array<Scalars['String']>>;
+  name_not?: Maybe<Scalars['String']>;
+  name_not_contains?: Maybe<Scalars['String']>;
+  name_not_ends_with?: Maybe<Scalars['String']>;
+  name_not_in?: Maybe<Array<Scalars['String']>>;
+  name_not_starts_with?: Maybe<Scalars['String']>;
+  name_starts_with?: Maybe<Scalars['String']>;
+  symbol?: Maybe<Scalars['String']>;
+  symbol_contains?: Maybe<Scalars['String']>;
+  symbol_ends_with?: Maybe<Scalars['String']>;
+  symbol_in?: Maybe<Array<Scalars['String']>>;
+  symbol_not?: Maybe<Scalars['String']>;
+  symbol_not_contains?: Maybe<Scalars['String']>;
+  symbol_not_ends_with?: Maybe<Scalars['String']>;
+  symbol_not_in?: Maybe<Array<Scalars['String']>>;
+  symbol_not_starts_with?: Maybe<Scalars['String']>;
+  symbol_starts_with?: Maybe<Scalars['String']>;
+};
+
+export type _RegionalBlocFilter = {
+  AND?: Maybe<Array<_RegionalBlocFilter>>;
+  OR?: Maybe<Array<_RegionalBlocFilter>>;
+  acronym?: Maybe<Scalars['String']>;
+  acronym_contains?: Maybe<Scalars['String']>;
+  acronym_ends_with?: Maybe<Scalars['String']>;
+  acronym_in?: Maybe<Array<Scalars['String']>>;
+  acronym_not?: Maybe<Scalars['String']>;
+  acronym_not_contains?: Maybe<Scalars['String']>;
+  acronym_not_ends_with?: Maybe<Scalars['String']>;
+  acronym_not_in?: Maybe<Array<Scalars['String']>>;
+  acronym_not_starts_with?: Maybe<Scalars['String']>;
+  acronym_starts_with?: Maybe<Scalars['String']>;
+  countries?: Maybe<_CountryFilter>;
+  countries_every?: Maybe<_CountryFilter>;
+  countries_in?: Maybe<Array<_CountryFilter>>;
+  countries_none?: Maybe<_CountryFilter>;
+  countries_not?: Maybe<_CountryFilter>;
+  countries_not_in?: Maybe<Array<_CountryFilter>>;
+  countries_single?: Maybe<_CountryFilter>;
+  countries_some?: Maybe<_CountryFilter>;
+  name?: Maybe<Scalars['String']>;
+  name_contains?: Maybe<Scalars['String']>;
+  name_ends_with?: Maybe<Scalars['String']>;
+  name_in?: Maybe<Array<Scalars['String']>>;
+  name_not?: Maybe<Scalars['String']>;
+  name_not_contains?: Maybe<Scalars['String']>;
+  name_not_ends_with?: Maybe<Scalars['String']>;
+  name_not_in?: Maybe<Array<Scalars['String']>>;
+  name_not_starts_with?: Maybe<Scalars['String']>;
+  name_starts_with?: Maybe<Scalars['String']>;
+};
+
+export type _FlagFilter = {
+  AND?: Maybe<Array<_FlagFilter>>;
+  OR?: Maybe<Array<_FlagFilter>>;
+  country?: Maybe<_CountryFilter>;
+  country_in?: Maybe<Array<_CountryFilter>>;
+  country_not?: Maybe<_CountryFilter>;
+  country_not_in?: Maybe<Array<_CountryFilter>>;
+  emoji?: Maybe<Scalars['String']>;
+  emojiUnicode?: Maybe<Scalars['String']>;
+  emojiUnicode_contains?: Maybe<Scalars['String']>;
+  emojiUnicode_ends_with?: Maybe<Scalars['String']>;
+  emojiUnicode_in?: Maybe<Array<Scalars['String']>>;
+  emojiUnicode_not?: Maybe<Scalars['String']>;
+  emojiUnicode_not_contains?: Maybe<Scalars['String']>;
+  emojiUnicode_not_ends_with?: Maybe<Scalars['String']>;
+  emojiUnicode_not_in?: Maybe<Array<Scalars['String']>>;
+  emojiUnicode_not_starts_with?: Maybe<Scalars['String']>;
+  emojiUnicode_starts_with?: Maybe<Scalars['String']>;
+  emoji_contains?: Maybe<Scalars['String']>;
+  emoji_ends_with?: Maybe<Scalars['String']>;
+  emoji_in?: Maybe<Array<Scalars['String']>>;
+  emoji_not?: Maybe<Scalars['String']>;
+  emoji_not_contains?: Maybe<Scalars['String']>;
+  emoji_not_ends_with?: Maybe<Scalars['String']>;
+  emoji_not_in?: Maybe<Array<Scalars['String']>>;
+  emoji_not_starts_with?: Maybe<Scalars['String']>;
+  emoji_starts_with?: Maybe<Scalars['String']>;
+  svgFile?: Maybe<Scalars['String']>;
+  svgFile_contains?: Maybe<Scalars['String']>;
+  svgFile_ends_with?: Maybe<Scalars['String']>;
+  svgFile_in?: Maybe<Array<Scalars['String']>>;
+  svgFile_not?: Maybe<Scalars['String']>;
+  svgFile_not_contains?: Maybe<Scalars['String']>;
+  svgFile_not_ends_with?: Maybe<Scalars['String']>;
+  svgFile_not_in?: Maybe<Array<Scalars['String']>>;
+  svgFile_not_starts_with?: Maybe<Scalars['String']>;
+  svgFile_starts_with?: Maybe<Scalars['String']>;
+};
+
+export type _DistanceToOtherCountryFilter = {
+  AND?: Maybe<Array<_DistanceToOtherCountryFilter>>;
+  OR?: Maybe<Array<_DistanceToOtherCountryFilter>>;
+  countryName?: Maybe<Scalars['String']>;
+  countryName_contains?: Maybe<Scalars['String']>;
+  countryName_ends_with?: Maybe<Scalars['String']>;
+  countryName_in?: Maybe<Array<Scalars['String']>>;
+  countryName_not?: Maybe<Scalars['String']>;
+  countryName_not_contains?: Maybe<Scalars['String']>;
+  countryName_not_ends_with?: Maybe<Scalars['String']>;
+  countryName_not_in?: Maybe<Array<Scalars['String']>>;
+  countryName_not_starts_with?: Maybe<Scalars['String']>;
+  countryName_starts_with?: Maybe<Scalars['String']>;
+  distanceInKm?: Maybe<Scalars['Float']>;
+  distanceInKm_gt?: Maybe<Scalars['Float']>;
+  distanceInKm_gte?: Maybe<Scalars['Float']>;
+  distanceInKm_in?: Maybe<Array<Scalars['Float']>>;
+  distanceInKm_lt?: Maybe<Scalars['Float']>;
+  distanceInKm_lte?: Maybe<Scalars['Float']>;
+  distanceInKm_not?: Maybe<Scalars['Float']>;
+  distanceInKm_not_in?: Maybe<Array<Scalars['Float']>>;
+};
+
 export type Country = {
   __typename?: 'Country';
   _id?: Maybe<Scalars['String']>;
@@ -383,35 +886,113 @@ export type CountrytopLevelDomainsArgs = {
   orderBy?: Maybe<Array<Maybe<_TopLevelDomainOrdering>>>;
 };
 
-export enum _TimezoneOrdering {
+export enum AreaUnit {
+  SQUARE_KILOMETERS = 'SQUARE_KILOMETERS',
+  SQUARE_METERS = 'SQUARE_METERS',
+  SQUARE_MILES = 'SQUARE_MILES'
+}
+
+export type Area = {
+  __typename?: 'Area';
+  /** The population per square <your selected unit> */
+  populationDensity?: Maybe<Scalars['Float']>;
+  unit?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+export type _Neo4jPoint = {
+  __typename?: '_Neo4jPoint';
+  crs?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['Float']>;
+  latitude?: Maybe<Scalars['Float']>;
+  longitude?: Maybe<Scalars['Float']>;
+  srid?: Maybe<Scalars['Int']>;
+  x?: Maybe<Scalars['Float']>;
+  y?: Maybe<Scalars['Float']>;
+  z?: Maybe<Scalars['Float']>;
+};
+
+export enum _TranslationOrdering {
+  _id_asc = '_id_asc',
+  _id_desc = '_id_desc',
+  languageCode_asc = 'languageCode_asc',
+  languageCode_desc = 'languageCode_desc',
+  value_asc = 'value_asc',
+  value_desc = 'value_desc'
+}
+
+export type Translation = {
+  __typename?: 'Translation';
+  _id?: Maybe<Scalars['String']>;
+  languageCode: Scalars['String'];
+  value: Scalars['String'];
+};
+
+export enum _TopLevelDomainOrdering {
   _id_asc = '_id_asc',
   _id_desc = '_id_desc',
   name_asc = 'name_asc',
   name_desc = 'name_desc'
 }
 
-export type _TimezoneFilter = {
-  AND?: Maybe<Array<_TimezoneFilter>>;
-  OR?: Maybe<Array<_TimezoneFilter>>;
-  countries?: Maybe<_CountryFilter>;
-  countries_every?: Maybe<_CountryFilter>;
-  countries_in?: Maybe<Array<_CountryFilter>>;
-  countries_none?: Maybe<_CountryFilter>;
-  countries_not?: Maybe<_CountryFilter>;
-  countries_not_in?: Maybe<Array<_CountryFilter>>;
-  countries_single?: Maybe<_CountryFilter>;
-  countries_some?: Maybe<_CountryFilter>;
-  name?: Maybe<Scalars['String']>;
-  name_contains?: Maybe<Scalars['String']>;
-  name_ends_with?: Maybe<Scalars['String']>;
-  name_in?: Maybe<Array<Scalars['String']>>;
-  name_not?: Maybe<Scalars['String']>;
-  name_not_contains?: Maybe<Scalars['String']>;
-  name_not_ends_with?: Maybe<Scalars['String']>;
-  name_not_in?: Maybe<Array<Scalars['String']>>;
-  name_not_starts_with?: Maybe<Scalars['String']>;
-  name_starts_with?: Maybe<Scalars['String']>;
+export type TopLevelDomain = {
+  __typename?: 'TopLevelDomain';
+  _id?: Maybe<Scalars['String']>;
+  countries?: Maybe<Array<Maybe<Country>>>;
+  name: Scalars['String'];
 };
+
+
+export type TopLevelDomaincountriesArgs = {
+  filter?: Maybe<_CountryFilter>;
+  first?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_CountryOrdering>>>;
+};
+
+export enum _CallingCodeOrdering {
+  _id_asc = '_id_asc',
+  _id_desc = '_id_desc',
+  name_asc = 'name_asc',
+  name_desc = 'name_desc'
+}
+
+export type CallingCode = {
+  __typename?: 'CallingCode';
+  _id?: Maybe<Scalars['String']>;
+  countries?: Maybe<Array<Maybe<Country>>>;
+  name: Scalars['String'];
+};
+
+
+export type CallingCodecountriesArgs = {
+  filter?: Maybe<_CountryFilter>;
+  first?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_CountryOrdering>>>;
+};
+
+export type AlternativeSpelling = {
+  __typename?: 'AlternativeSpelling';
+  _id: Scalars['String'];
+  countries?: Maybe<Array<Maybe<Country>>>;
+  name: Scalars['String'];
+};
+
+
+export type AlternativeSpellingcountriesArgs = {
+  filter?: Maybe<_CountryFilter>;
+  first?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<Maybe<_CountryOrdering>>>;
+};
+
+export enum _TimezoneOrdering {
+  _id_asc = '_id_asc',
+  _id_desc = '_id_desc',
+  name_asc = 'name_asc',
+  name_desc = 'name_desc'
+}
 
 export type Timezone = {
   __typename?: 'Timezone';
@@ -426,40 +1007,6 @@ export type TimezonecountriesArgs = {
   first?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<Array<Maybe<_CountryOrdering>>>;
-};
-
-export enum _SubregionOrdering {
-  _id_asc = '_id_asc',
-  _id_desc = '_id_desc',
-  name_asc = 'name_asc',
-  name_desc = 'name_desc'
-}
-
-export type _SubregionFilter = {
-  AND?: Maybe<Array<_SubregionFilter>>;
-  OR?: Maybe<Array<_SubregionFilter>>;
-  countries?: Maybe<_CountryFilter>;
-  countries_every?: Maybe<_CountryFilter>;
-  countries_in?: Maybe<Array<_CountryFilter>>;
-  countries_none?: Maybe<_CountryFilter>;
-  countries_not?: Maybe<_CountryFilter>;
-  countries_not_in?: Maybe<Array<_CountryFilter>>;
-  countries_single?: Maybe<_CountryFilter>;
-  countries_some?: Maybe<_CountryFilter>;
-  name?: Maybe<Scalars['String']>;
-  name_contains?: Maybe<Scalars['String']>;
-  name_ends_with?: Maybe<Scalars['String']>;
-  name_in?: Maybe<Array<Scalars['String']>>;
-  name_not?: Maybe<Scalars['String']>;
-  name_not_contains?: Maybe<Scalars['String']>;
-  name_not_ends_with?: Maybe<Scalars['String']>;
-  name_not_in?: Maybe<Array<Scalars['String']>>;
-  name_not_starts_with?: Maybe<Scalars['String']>;
-  name_starts_with?: Maybe<Scalars['String']>;
-  region?: Maybe<_RegionFilter>;
-  region_in?: Maybe<Array<_RegionFilter>>;
-  region_not?: Maybe<_RegionFilter>;
-  region_not_in?: Maybe<Array<_RegionFilter>>;
 };
 
 export type Subregion = {
@@ -483,36 +1030,6 @@ export type SubregionregionArgs = {
   filter?: Maybe<_RegionFilter>;
 };
 
-export enum _RegionOrdering {
-  _id_asc = '_id_asc',
-  _id_desc = '_id_desc',
-  name_asc = 'name_asc',
-  name_desc = 'name_desc'
-}
-
-export type _RegionFilter = {
-  AND?: Maybe<Array<_RegionFilter>>;
-  OR?: Maybe<Array<_RegionFilter>>;
-  name?: Maybe<Scalars['String']>;
-  name_contains?: Maybe<Scalars['String']>;
-  name_ends_with?: Maybe<Scalars['String']>;
-  name_in?: Maybe<Array<Scalars['String']>>;
-  name_not?: Maybe<Scalars['String']>;
-  name_not_contains?: Maybe<Scalars['String']>;
-  name_not_ends_with?: Maybe<Scalars['String']>;
-  name_not_in?: Maybe<Array<Scalars['String']>>;
-  name_not_starts_with?: Maybe<Scalars['String']>;
-  name_starts_with?: Maybe<Scalars['String']>;
-  subregions?: Maybe<_SubregionFilter>;
-  subregions_every?: Maybe<_SubregionFilter>;
-  subregions_in?: Maybe<Array<_SubregionFilter>>;
-  subregions_none?: Maybe<_SubregionFilter>;
-  subregions_not?: Maybe<_SubregionFilter>;
-  subregions_not_in?: Maybe<Array<_SubregionFilter>>;
-  subregions_single?: Maybe<_SubregionFilter>;
-  subregions_some?: Maybe<_SubregionFilter>;
-};
-
 export type Region = {
   __typename?: 'Region';
   _id?: Maybe<Scalars['String']>;
@@ -528,6 +1045,13 @@ export type RegionsubregionsArgs = {
   orderBy?: Maybe<Array<Maybe<_SubregionOrdering>>>;
 };
 
+export enum _SubregionOrdering {
+  _id_asc = '_id_asc',
+  _id_desc = '_id_desc',
+  name_asc = 'name_asc',
+  name_desc = 'name_desc'
+}
+
 export enum _LanguageOrdering {
   _id_asc = '_id_asc',
   _id_desc = '_id_desc',
@@ -540,59 +1064,6 @@ export enum _LanguageOrdering {
   nativeName_asc = 'nativeName_asc',
   nativeName_desc = 'nativeName_desc'
 }
-
-export type _LanguageFilter = {
-  AND?: Maybe<Array<_LanguageFilter>>;
-  OR?: Maybe<Array<_LanguageFilter>>;
-  countries?: Maybe<_CountryFilter>;
-  countries_every?: Maybe<_CountryFilter>;
-  countries_in?: Maybe<Array<_CountryFilter>>;
-  countries_none?: Maybe<_CountryFilter>;
-  countries_not?: Maybe<_CountryFilter>;
-  countries_not_in?: Maybe<Array<_CountryFilter>>;
-  countries_single?: Maybe<_CountryFilter>;
-  countries_some?: Maybe<_CountryFilter>;
-  iso639_1?: Maybe<Scalars['String']>;
-  iso639_1_contains?: Maybe<Scalars['String']>;
-  iso639_1_ends_with?: Maybe<Scalars['String']>;
-  iso639_1_in?: Maybe<Array<Scalars['String']>>;
-  iso639_1_not?: Maybe<Scalars['String']>;
-  iso639_1_not_contains?: Maybe<Scalars['String']>;
-  iso639_1_not_ends_with?: Maybe<Scalars['String']>;
-  iso639_1_not_in?: Maybe<Array<Scalars['String']>>;
-  iso639_1_not_starts_with?: Maybe<Scalars['String']>;
-  iso639_1_starts_with?: Maybe<Scalars['String']>;
-  iso639_2?: Maybe<Scalars['String']>;
-  iso639_2_contains?: Maybe<Scalars['String']>;
-  iso639_2_ends_with?: Maybe<Scalars['String']>;
-  iso639_2_in?: Maybe<Array<Scalars['String']>>;
-  iso639_2_not?: Maybe<Scalars['String']>;
-  iso639_2_not_contains?: Maybe<Scalars['String']>;
-  iso639_2_not_ends_with?: Maybe<Scalars['String']>;
-  iso639_2_not_in?: Maybe<Array<Scalars['String']>>;
-  iso639_2_not_starts_with?: Maybe<Scalars['String']>;
-  iso639_2_starts_with?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  name_contains?: Maybe<Scalars['String']>;
-  name_ends_with?: Maybe<Scalars['String']>;
-  name_in?: Maybe<Array<Scalars['String']>>;
-  name_not?: Maybe<Scalars['String']>;
-  name_not_contains?: Maybe<Scalars['String']>;
-  name_not_ends_with?: Maybe<Scalars['String']>;
-  name_not_in?: Maybe<Array<Scalars['String']>>;
-  name_not_starts_with?: Maybe<Scalars['String']>;
-  name_starts_with?: Maybe<Scalars['String']>;
-  nativeName?: Maybe<Scalars['String']>;
-  nativeName_contains?: Maybe<Scalars['String']>;
-  nativeName_ends_with?: Maybe<Scalars['String']>;
-  nativeName_in?: Maybe<Array<Scalars['String']>>;
-  nativeName_not?: Maybe<Scalars['String']>;
-  nativeName_not_contains?: Maybe<Scalars['String']>;
-  nativeName_not_ends_with?: Maybe<Scalars['String']>;
-  nativeName_not_in?: Maybe<Array<Scalars['String']>>;
-  nativeName_not_starts_with?: Maybe<Scalars['String']>;
-  nativeName_starts_with?: Maybe<Scalars['String']>;
-};
 
 export type Language = {
   __typename?: 'Language';
@@ -623,49 +1094,6 @@ export enum _CurrencyOrdering {
   symbol_desc = 'symbol_desc'
 }
 
-export type _CurrencyFilter = {
-  AND?: Maybe<Array<_CurrencyFilter>>;
-  OR?: Maybe<Array<_CurrencyFilter>>;
-  code?: Maybe<Scalars['String']>;
-  code_contains?: Maybe<Scalars['String']>;
-  code_ends_with?: Maybe<Scalars['String']>;
-  code_in?: Maybe<Array<Scalars['String']>>;
-  code_not?: Maybe<Scalars['String']>;
-  code_not_contains?: Maybe<Scalars['String']>;
-  code_not_ends_with?: Maybe<Scalars['String']>;
-  code_not_in?: Maybe<Array<Scalars['String']>>;
-  code_not_starts_with?: Maybe<Scalars['String']>;
-  code_starts_with?: Maybe<Scalars['String']>;
-  countries?: Maybe<_CountryFilter>;
-  countries_every?: Maybe<_CountryFilter>;
-  countries_in?: Maybe<Array<_CountryFilter>>;
-  countries_none?: Maybe<_CountryFilter>;
-  countries_not?: Maybe<_CountryFilter>;
-  countries_not_in?: Maybe<Array<_CountryFilter>>;
-  countries_single?: Maybe<_CountryFilter>;
-  countries_some?: Maybe<_CountryFilter>;
-  name?: Maybe<Scalars['String']>;
-  name_contains?: Maybe<Scalars['String']>;
-  name_ends_with?: Maybe<Scalars['String']>;
-  name_in?: Maybe<Array<Scalars['String']>>;
-  name_not?: Maybe<Scalars['String']>;
-  name_not_contains?: Maybe<Scalars['String']>;
-  name_not_ends_with?: Maybe<Scalars['String']>;
-  name_not_in?: Maybe<Array<Scalars['String']>>;
-  name_not_starts_with?: Maybe<Scalars['String']>;
-  name_starts_with?: Maybe<Scalars['String']>;
-  symbol?: Maybe<Scalars['String']>;
-  symbol_contains?: Maybe<Scalars['String']>;
-  symbol_ends_with?: Maybe<Scalars['String']>;
-  symbol_in?: Maybe<Array<Scalars['String']>>;
-  symbol_not?: Maybe<Scalars['String']>;
-  symbol_not_contains?: Maybe<Scalars['String']>;
-  symbol_not_ends_with?: Maybe<Scalars['String']>;
-  symbol_not_in?: Maybe<Array<Scalars['String']>>;
-  symbol_not_starts_with?: Maybe<Scalars['String']>;
-  symbol_starts_with?: Maybe<Scalars['String']>;
-};
-
 export type Currency = {
   __typename?: 'Currency';
   _id?: Maybe<Scalars['String']>;
@@ -691,39 +1119,6 @@ export enum _RegionalBlocOrdering {
   name_asc = 'name_asc',
   name_desc = 'name_desc'
 }
-
-export type _RegionalBlocFilter = {
-  AND?: Maybe<Array<_RegionalBlocFilter>>;
-  OR?: Maybe<Array<_RegionalBlocFilter>>;
-  acronym?: Maybe<Scalars['String']>;
-  acronym_contains?: Maybe<Scalars['String']>;
-  acronym_ends_with?: Maybe<Scalars['String']>;
-  acronym_in?: Maybe<Array<Scalars['String']>>;
-  acronym_not?: Maybe<Scalars['String']>;
-  acronym_not_contains?: Maybe<Scalars['String']>;
-  acronym_not_ends_with?: Maybe<Scalars['String']>;
-  acronym_not_in?: Maybe<Array<Scalars['String']>>;
-  acronym_not_starts_with?: Maybe<Scalars['String']>;
-  acronym_starts_with?: Maybe<Scalars['String']>;
-  countries?: Maybe<_CountryFilter>;
-  countries_every?: Maybe<_CountryFilter>;
-  countries_in?: Maybe<Array<_CountryFilter>>;
-  countries_none?: Maybe<_CountryFilter>;
-  countries_not?: Maybe<_CountryFilter>;
-  countries_not_in?: Maybe<Array<_CountryFilter>>;
-  countries_single?: Maybe<_CountryFilter>;
-  countries_some?: Maybe<_CountryFilter>;
-  name?: Maybe<Scalars['String']>;
-  name_contains?: Maybe<Scalars['String']>;
-  name_ends_with?: Maybe<Scalars['String']>;
-  name_in?: Maybe<Array<Scalars['String']>>;
-  name_not?: Maybe<Scalars['String']>;
-  name_not_contains?: Maybe<Scalars['String']>;
-  name_not_ends_with?: Maybe<Scalars['String']>;
-  name_not_in?: Maybe<Array<Scalars['String']>>;
-  name_not_starts_with?: Maybe<Scalars['String']>;
-  name_starts_with?: Maybe<Scalars['String']>;
-};
 
 export type RegionalBloc = {
   __typename?: 'RegionalBloc';
@@ -773,105 +1168,6 @@ export type OtherNameregionalBlocsArgs = {
   orderBy?: Maybe<Array<Maybe<_RegionalBlocOrdering>>>;
 };
 
-export type Area = {
-  __typename?: 'Area';
-  /** The population per square <your selected unit> */
-  populationDensity?: Maybe<Scalars['Float']>;
-  unit?: Maybe<Scalars['String']>;
-  value?: Maybe<Scalars['Float']>;
-};
-
-export enum _TranslationOrdering {
-  _id_asc = '_id_asc',
-  _id_desc = '_id_desc',
-  languageCode_asc = 'languageCode_asc',
-  languageCode_desc = 'languageCode_desc',
-  value_asc = 'value_asc',
-  value_desc = 'value_desc'
-}
-
-export type _TranslationFilter = {
-  AND?: Maybe<Array<_TranslationFilter>>;
-  OR?: Maybe<Array<_TranslationFilter>>;
-  languageCode?: Maybe<Scalars['String']>;
-  languageCode_contains?: Maybe<Scalars['String']>;
-  languageCode_ends_with?: Maybe<Scalars['String']>;
-  languageCode_in?: Maybe<Array<Scalars['String']>>;
-  languageCode_not?: Maybe<Scalars['String']>;
-  languageCode_not_contains?: Maybe<Scalars['String']>;
-  languageCode_not_ends_with?: Maybe<Scalars['String']>;
-  languageCode_not_in?: Maybe<Array<Scalars['String']>>;
-  languageCode_not_starts_with?: Maybe<Scalars['String']>;
-  languageCode_starts_with?: Maybe<Scalars['String']>;
-  value?: Maybe<Scalars['String']>;
-  value_contains?: Maybe<Scalars['String']>;
-  value_ends_with?: Maybe<Scalars['String']>;
-  value_in?: Maybe<Array<Scalars['String']>>;
-  value_not?: Maybe<Scalars['String']>;
-  value_not_contains?: Maybe<Scalars['String']>;
-  value_not_ends_with?: Maybe<Scalars['String']>;
-  value_not_in?: Maybe<Array<Scalars['String']>>;
-  value_not_starts_with?: Maybe<Scalars['String']>;
-  value_starts_with?: Maybe<Scalars['String']>;
-};
-
-export type Translation = {
-  __typename?: 'Translation';
-  _id?: Maybe<Scalars['String']>;
-  languageCode: Scalars['String'];
-  value: Scalars['String'];
-};
-
-export enum _FlagOrdering {
-  _id_asc = '_id_asc',
-  _id_desc = '_id_desc',
-  emojiUnicode_asc = 'emojiUnicode_asc',
-  emojiUnicode_desc = 'emojiUnicode_desc',
-  emoji_asc = 'emoji_asc',
-  emoji_desc = 'emoji_desc',
-  svgFile_asc = 'svgFile_asc',
-  svgFile_desc = 'svgFile_desc'
-}
-
-export type _FlagFilter = {
-  AND?: Maybe<Array<_FlagFilter>>;
-  OR?: Maybe<Array<_FlagFilter>>;
-  country?: Maybe<_CountryFilter>;
-  country_in?: Maybe<Array<_CountryFilter>>;
-  country_not?: Maybe<_CountryFilter>;
-  country_not_in?: Maybe<Array<_CountryFilter>>;
-  emoji?: Maybe<Scalars['String']>;
-  emojiUnicode?: Maybe<Scalars['String']>;
-  emojiUnicode_contains?: Maybe<Scalars['String']>;
-  emojiUnicode_ends_with?: Maybe<Scalars['String']>;
-  emojiUnicode_in?: Maybe<Array<Scalars['String']>>;
-  emojiUnicode_not?: Maybe<Scalars['String']>;
-  emojiUnicode_not_contains?: Maybe<Scalars['String']>;
-  emojiUnicode_not_ends_with?: Maybe<Scalars['String']>;
-  emojiUnicode_not_in?: Maybe<Array<Scalars['String']>>;
-  emojiUnicode_not_starts_with?: Maybe<Scalars['String']>;
-  emojiUnicode_starts_with?: Maybe<Scalars['String']>;
-  emoji_contains?: Maybe<Scalars['String']>;
-  emoji_ends_with?: Maybe<Scalars['String']>;
-  emoji_in?: Maybe<Array<Scalars['String']>>;
-  emoji_not?: Maybe<Scalars['String']>;
-  emoji_not_contains?: Maybe<Scalars['String']>;
-  emoji_not_ends_with?: Maybe<Scalars['String']>;
-  emoji_not_in?: Maybe<Array<Scalars['String']>>;
-  emoji_not_starts_with?: Maybe<Scalars['String']>;
-  emoji_starts_with?: Maybe<Scalars['String']>;
-  svgFile?: Maybe<Scalars['String']>;
-  svgFile_contains?: Maybe<Scalars['String']>;
-  svgFile_ends_with?: Maybe<Scalars['String']>;
-  svgFile_in?: Maybe<Array<Scalars['String']>>;
-  svgFile_not?: Maybe<Scalars['String']>;
-  svgFile_not_contains?: Maybe<Scalars['String']>;
-  svgFile_not_ends_with?: Maybe<Scalars['String']>;
-  svgFile_not_in?: Maybe<Array<Scalars['String']>>;
-  svgFile_not_starts_with?: Maybe<Scalars['String']>;
-  svgFile_starts_with?: Maybe<Scalars['String']>;
-};
-
 export type Flag = {
   __typename?: 'Flag';
   _id?: Maybe<Scalars['String']>;
@@ -895,29 +1191,6 @@ export enum _DistanceToOtherCountryOrdering {
   distanceInKm_desc = 'distanceInKm_desc'
 }
 
-export type _DistanceToOtherCountryFilter = {
-  AND?: Maybe<Array<_DistanceToOtherCountryFilter>>;
-  OR?: Maybe<Array<_DistanceToOtherCountryFilter>>;
-  countryName?: Maybe<Scalars['String']>;
-  countryName_contains?: Maybe<Scalars['String']>;
-  countryName_ends_with?: Maybe<Scalars['String']>;
-  countryName_in?: Maybe<Array<Scalars['String']>>;
-  countryName_not?: Maybe<Scalars['String']>;
-  countryName_not_contains?: Maybe<Scalars['String']>;
-  countryName_not_ends_with?: Maybe<Scalars['String']>;
-  countryName_not_in?: Maybe<Array<Scalars['String']>>;
-  countryName_not_starts_with?: Maybe<Scalars['String']>;
-  countryName_starts_with?: Maybe<Scalars['String']>;
-  distanceInKm?: Maybe<Scalars['Float']>;
-  distanceInKm_gt?: Maybe<Scalars['Float']>;
-  distanceInKm_gte?: Maybe<Scalars['Float']>;
-  distanceInKm_in?: Maybe<Array<Scalars['Float']>>;
-  distanceInKm_lt?: Maybe<Scalars['Float']>;
-  distanceInKm_lte?: Maybe<Scalars['Float']>;
-  distanceInKm_not?: Maybe<Scalars['Float']>;
-  distanceInKm_not_in?: Maybe<Array<Scalars['Float']>>;
-};
-
 export type DistanceToOtherCountry = {
   __typename?: 'DistanceToOtherCountry';
   _id?: Maybe<Scalars['String']>;
@@ -926,110 +1199,23 @@ export type DistanceToOtherCountry = {
   distanceInKm?: Maybe<Scalars['Float']>;
 };
 
-export enum _TopLevelDomainOrdering {
+export enum _RegionOrdering {
   _id_asc = '_id_asc',
   _id_desc = '_id_desc',
   name_asc = 'name_asc',
   name_desc = 'name_desc'
 }
 
-export type _TopLevelDomainFilter = {
-  AND?: Maybe<Array<_TopLevelDomainFilter>>;
-  OR?: Maybe<Array<_TopLevelDomainFilter>>;
-  countries?: Maybe<_CountryFilter>;
-  countries_every?: Maybe<_CountryFilter>;
-  countries_in?: Maybe<Array<_CountryFilter>>;
-  countries_none?: Maybe<_CountryFilter>;
-  countries_not?: Maybe<_CountryFilter>;
-  countries_not_in?: Maybe<Array<_CountryFilter>>;
-  countries_single?: Maybe<_CountryFilter>;
-  countries_some?: Maybe<_CountryFilter>;
-  name?: Maybe<Scalars['String']>;
-  name_contains?: Maybe<Scalars['String']>;
-  name_ends_with?: Maybe<Scalars['String']>;
-  name_in?: Maybe<Array<Scalars['String']>>;
-  name_not?: Maybe<Scalars['String']>;
-  name_not_contains?: Maybe<Scalars['String']>;
-  name_not_ends_with?: Maybe<Scalars['String']>;
-  name_not_in?: Maybe<Array<Scalars['String']>>;
-  name_not_starts_with?: Maybe<Scalars['String']>;
-  name_starts_with?: Maybe<Scalars['String']>;
-};
-
-export type TopLevelDomain = {
-  __typename?: 'TopLevelDomain';
-  _id?: Maybe<Scalars['String']>;
-  countries?: Maybe<Array<Maybe<Country>>>;
-  name: Scalars['String'];
-};
-
-
-export type TopLevelDomaincountriesArgs = {
-  filter?: Maybe<_CountryFilter>;
-  first?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_CountryOrdering>>>;
-};
-
-export enum _CallingCodeOrdering {
+export enum _FlagOrdering {
   _id_asc = '_id_asc',
   _id_desc = '_id_desc',
-  name_asc = 'name_asc',
-  name_desc = 'name_desc'
+  emojiUnicode_asc = 'emojiUnicode_asc',
+  emojiUnicode_desc = 'emojiUnicode_desc',
+  emoji_asc = 'emoji_asc',
+  emoji_desc = 'emoji_desc',
+  svgFile_asc = 'svgFile_asc',
+  svgFile_desc = 'svgFile_desc'
 }
-
-export type _CallingCodeFilter = {
-  AND?: Maybe<Array<_CallingCodeFilter>>;
-  OR?: Maybe<Array<_CallingCodeFilter>>;
-  countries?: Maybe<_CountryFilter>;
-  countries_every?: Maybe<_CountryFilter>;
-  countries_in?: Maybe<Array<_CountryFilter>>;
-  countries_none?: Maybe<_CountryFilter>;
-  countries_not?: Maybe<_CountryFilter>;
-  countries_not_in?: Maybe<Array<_CountryFilter>>;
-  countries_single?: Maybe<_CountryFilter>;
-  countries_some?: Maybe<_CountryFilter>;
-  name?: Maybe<Scalars['String']>;
-  name_contains?: Maybe<Scalars['String']>;
-  name_ends_with?: Maybe<Scalars['String']>;
-  name_in?: Maybe<Array<Scalars['String']>>;
-  name_not?: Maybe<Scalars['String']>;
-  name_not_contains?: Maybe<Scalars['String']>;
-  name_not_ends_with?: Maybe<Scalars['String']>;
-  name_not_in?: Maybe<Array<Scalars['String']>>;
-  name_not_starts_with?: Maybe<Scalars['String']>;
-  name_starts_with?: Maybe<Scalars['String']>;
-};
-
-export type CallingCode = {
-  __typename?: 'CallingCode';
-  _id?: Maybe<Scalars['String']>;
-  countries?: Maybe<Array<Maybe<Country>>>;
-  name: Scalars['String'];
-};
-
-
-export type CallingCodecountriesArgs = {
-  filter?: Maybe<_CountryFilter>;
-  first?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_CountryOrdering>>>;
-};
-
-export type AlternativeSpelling = {
-  __typename?: 'AlternativeSpelling';
-  _id: Scalars['String'];
-  countries?: Maybe<Array<Maybe<Country>>>;
-  name: Scalars['String'];
-};
-
-
-export type AlternativeSpellingcountriesArgs = {
-  filter?: Maybe<_CountryFilter>;
-  first?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_CountryOrdering>>>;
-};
 
 export type _Neo4jTime = {
   __typename?: '_Neo4jTime';
@@ -1146,196 +1332,10 @@ export type _Neo4jLocalDateTimeInput = {
   year?: Maybe<Scalars['Int']>;
 };
 
-export type _Neo4jPointDistanceFilter = {
-  distance: Scalars['Float'];
-  point: _Neo4jPointInput;
-};
-
-export type _Neo4jPoint = {
-  __typename?: '_Neo4jPoint';
-  crs?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Float']>;
-  latitude?: Maybe<Scalars['Float']>;
-  longitude?: Maybe<Scalars['Float']>;
-  srid?: Maybe<Scalars['Int']>;
-  x?: Maybe<Scalars['Float']>;
-  y?: Maybe<Scalars['Float']>;
-  z?: Maybe<Scalars['Float']>;
-};
-
-export type _Neo4jPointInput = {
-  crs?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Float']>;
-  latitude?: Maybe<Scalars['Float']>;
-  longitude?: Maybe<Scalars['Float']>;
-  srid?: Maybe<Scalars['Int']>;
-  x?: Maybe<Scalars['Float']>;
-  y?: Maybe<Scalars['Float']>;
-  z?: Maybe<Scalars['Float']>;
-};
-
 export enum _RelationDirections {
   IN = 'IN',
   OUT = 'OUT'
 }
-
-export type Query = {
-  __typename?: 'Query';
-  CallingCode?: Maybe<Array<Maybe<CallingCode>>>;
-  Country?: Maybe<Array<Maybe<Country>>>;
-  Currency?: Maybe<Array<Maybe<Currency>>>;
-  DistanceToOtherCountry?: Maybe<Array<Maybe<DistanceToOtherCountry>>>;
-  Flag?: Maybe<Array<Maybe<Flag>>>;
-  Language?: Maybe<Array<Maybe<Language>>>;
-  Region?: Maybe<Array<Maybe<Region>>>;
-  RegionalBloc?: Maybe<Array<Maybe<RegionalBloc>>>;
-  Subregion?: Maybe<Array<Maybe<Subregion>>>;
-  Timezone?: Maybe<Array<Maybe<Timezone>>>;
-  TopLevelDomain?: Maybe<Array<Maybe<TopLevelDomain>>>;
-  Translation?: Maybe<Array<Maybe<Translation>>>;
-};
-
-
-export type QueryCallingCodeArgs = {
-  _id?: Maybe<Scalars['String']>;
-  filter?: Maybe<_CallingCodeFilter>;
-  first?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_CallingCodeOrdering>>>;
-};
-
-
-export type QueryCountryArgs = {
-  _id?: Maybe<Scalars['String']>;
-  alpha2Code?: Maybe<Scalars['String']>;
-  alpha3Code?: Maybe<Scalars['String']>;
-  area?: Maybe<Scalars['Float']>;
-  capital?: Maybe<Scalars['String']>;
-  demonym?: Maybe<Scalars['String']>;
-  filter?: Maybe<_CountryFilter>;
-  first?: Maybe<Scalars['Int']>;
-  gini?: Maybe<Scalars['Float']>;
-  location?: Maybe<_Neo4jPointInput>;
-  name?: Maybe<Scalars['String']>;
-  nameTranslation?: Maybe<Scalars['String']>;
-  nativeName?: Maybe<Scalars['String']>;
-  numericCode?: Maybe<Scalars['String']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_CountryOrdering>>>;
-  population?: Maybe<Scalars['Float']>;
-  populationDensity?: Maybe<Scalars['Float']>;
-};
-
-
-export type QueryCurrencyArgs = {
-  _id?: Maybe<Scalars['String']>;
-  code?: Maybe<Scalars['String']>;
-  filter?: Maybe<_CurrencyFilter>;
-  first?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_CurrencyOrdering>>>;
-  symbol?: Maybe<Scalars['String']>;
-};
-
-
-export type QueryDistanceToOtherCountryArgs = {
-  _id?: Maybe<Scalars['String']>;
-  countryName?: Maybe<Scalars['String']>;
-  distanceInKm?: Maybe<Scalars['Float']>;
-  filter?: Maybe<_DistanceToOtherCountryFilter>;
-  first?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_DistanceToOtherCountryOrdering>>>;
-};
-
-
-export type QueryFlagArgs = {
-  _id?: Maybe<Scalars['String']>;
-  emoji?: Maybe<Scalars['String']>;
-  emojiUnicode?: Maybe<Scalars['String']>;
-  filter?: Maybe<_FlagFilter>;
-  first?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_FlagOrdering>>>;
-  svgFile?: Maybe<Scalars['String']>;
-};
-
-
-export type QueryLanguageArgs = {
-  _id?: Maybe<Scalars['String']>;
-  filter?: Maybe<_LanguageFilter>;
-  first?: Maybe<Scalars['Int']>;
-  iso639_1?: Maybe<Scalars['String']>;
-  iso639_2?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  nativeName?: Maybe<Scalars['String']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_LanguageOrdering>>>;
-};
-
-
-export type QueryRegionArgs = {
-  _id?: Maybe<Scalars['String']>;
-  filter?: Maybe<_RegionFilter>;
-  first?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_RegionOrdering>>>;
-};
-
-
-export type QueryRegionalBlocArgs = {
-  _id?: Maybe<Scalars['String']>;
-  acronym?: Maybe<Scalars['String']>;
-  filter?: Maybe<_RegionalBlocFilter>;
-  first?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_RegionalBlocOrdering>>>;
-};
-
-
-export type QuerySubregionArgs = {
-  _id?: Maybe<Scalars['String']>;
-  filter?: Maybe<_SubregionFilter>;
-  first?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_SubregionOrdering>>>;
-};
-
-
-export type QueryTimezoneArgs = {
-  _id?: Maybe<Scalars['String']>;
-  filter?: Maybe<_TimezoneFilter>;
-  first?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_TimezoneOrdering>>>;
-};
-
-
-export type QueryTopLevelDomainArgs = {
-  _id?: Maybe<Scalars['String']>;
-  filter?: Maybe<_TopLevelDomainFilter>;
-  first?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_TopLevelDomainOrdering>>>;
-};
-
-
-export type QueryTranslationArgs = {
-  _id?: Maybe<Scalars['String']>;
-  filter?: Maybe<_TranslationFilter>;
-  first?: Maybe<Scalars['Int']>;
-  languageCode?: Maybe<Scalars['String']>;
-  offset?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<Array<Maybe<_TranslationOrdering>>>;
-  value?: Maybe<Scalars['String']>;
-};
 
 export enum LanguageCode {
   fa = 'fa',

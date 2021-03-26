@@ -5,9 +5,9 @@ import { useParams, Link as RouterLink } from 'react-router-dom';
 import CountryCard from '../../components/CountryCard';
 import TextLabel from '../../components/TextLabel/TextLabel';
 import formatNumber from '../../utils/formatNumber';
-import { useCountryDetails } from './__generated__/CountryDetails.query';
 import TickingClock from '../../components/TickingClock';
 import ErrorMessage from '../../components/ErrorMessage';
+import { useCountryDetails } from './__generated__/CountryDetails.query';
 
 const CountryDetailsPage: React.FC = () => {
   const { code } = useParams<{ code: string }>();
@@ -28,10 +28,8 @@ const CountryDetailsPage: React.FC = () => {
   }
 
   const country = data.countries?.[0];
-  console.log('country', country);
 
   if (!country) {
-    console.log('if');
     return <ErrorMessage title="404" message="Country does not exist" />;
   }
 

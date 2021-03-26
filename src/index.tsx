@@ -8,7 +8,20 @@ import reportWebVitals from './reportWebVitals';
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_API_URL || 'https://graphcountries.herokuapp.com/',
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Country: {
+        fields: {
+          capital: {
+            read(value) {
+              // https://en.wikipedia.org/wiki/KyivNotKiev
+              return value === 'Kiev' ? 'Kyiv' : value;
+            },
+          },
+        },
+      },
+    },
+  }),
 });
 
 ReactDOM.render(

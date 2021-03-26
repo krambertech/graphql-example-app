@@ -10,6 +10,7 @@ const client = new ApolloClient({
   uri: process.env.REACT_APP_API_URL || 'https://graphcountries.herokuapp.com/',
   cache: new InMemoryCache({
     typePolicies: {
+      // With declaring type policies we can modify and decorate data on the client
       Country: {
         fields: {
           capital: {

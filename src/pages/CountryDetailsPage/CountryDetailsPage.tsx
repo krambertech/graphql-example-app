@@ -7,6 +7,7 @@ import TextLabel from '../../components/TextLabel/TextLabel';
 import formatNumber from '../../utils/formatNumber';
 import { useCountryDetails } from './__generated__/CountryDetails.query';
 import TickingClock from '../../components/TickingClock';
+import ErrorMessage from '../../components/ErrorMessage';
 
 const CountryDetailsPage: React.FC = () => {
   const { code } = useParams<{ code: string }>();
@@ -23,13 +24,15 @@ const CountryDetailsPage: React.FC = () => {
   }
 
   if (error) {
-    return <h1>{error}</h1>;
+    return <ErrorMessage title="Error" message={error.message} />;
   }
 
   const country = data.countries?.[0];
+  console.log('country', country);
 
   if (!country) {
-    return <h1>Not found</h1>;
+    console.log('if');
+    return <ErrorMessage title="404" message="Country does not exist" />;
   }
 
   return (

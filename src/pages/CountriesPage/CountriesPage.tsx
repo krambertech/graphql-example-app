@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { HiSearch } from 'react-icons/hi';
 import CountryCard from '../../components/CountryCard';
+import ErrorMessage from '../../components/ErrorMessage';
 import useQueryParam from '../../utils/useQueryParam';
 import { useCountryList } from './__generated__/CountryList.query';
 import { useSubregionList } from './__generated__/SubregionList.query';
@@ -25,7 +26,7 @@ const CountriesPage: React.FC = () => {
   const subregionList = useSubregionList();
 
   if (error) {
-    return <h1>{error?.message}</h1>;
+    return <ErrorMessage title="Error" message={error.message} />;
   }
 
   const displayedCountries = data?.countries?.filter(
@@ -58,7 +59,7 @@ const CountriesPage: React.FC = () => {
           {subregionList.data?.subregions?.map(
             subregion =>
               subregion?.name && (
-                <option key={subregion.name} value={subregion.name}>
+                <option key={subregion._id} value={subregion.name}>
                   {subregion.name}
                 </option>
               ),

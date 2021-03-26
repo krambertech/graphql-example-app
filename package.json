@@ -14,8 +14,7 @@
     "graphql:generate": "graphql codegen",
     "graphql:generate:watch": "graphql codegen --watch",
     "graphql:coverage": "graphql coverage",
-    "graphql:validate": "graphql validate",
-    "prepare": "husky install"
+    "graphql:validate": "graphql validate"
   },
   "dependencies": {
     "@apollo/client": "^3.3.13",
@@ -57,6 +56,7 @@
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.4.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.3.2",
     "eslint-plugin-jest-dom": "^3.6.5",

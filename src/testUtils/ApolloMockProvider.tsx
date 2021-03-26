@@ -82,7 +82,12 @@ const ApolloMockProvider: React.FC<ApolloMockProviderProps> = ({
   cache,
 }: ApolloMockProviderProps) => {
   if (loading) {
-    const link = new ApolloLink(() => new Observable(() => {}));
+    const link = new ApolloLink(
+      () =>
+        new Observable(() => {
+          //...
+        }),
+    );
 
     const client = new ApolloClient({
       link,

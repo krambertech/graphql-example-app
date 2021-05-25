@@ -1,11 +1,9 @@
 // This config is need for Apollo VSCode extension to work
 // https://marketplace.visualstudio.com/items?itemName=apollographql.vscode-apollo
 module.exports = {
-  client: {
-    service: {
-      name: 'countries-grapi',
-      service: 'graphql-example-app',
-      url: 'https://countries.trevorblades.com/',
-    },
+  service: {
+    name: 'graphql-example',
+    localSchemaFile: './schema.graphql',
   },
+  includes: ['src/**/*.graphql'],
 };

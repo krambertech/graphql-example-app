@@ -7,7 +7,6 @@ type ErrorMessageProps = {
 };
 
 const ErrorMessage: React.FC<ErrorMessageProps> = ({ title, message }) => {
-  console.log('ErrorMessage');
   return (
     <Stack maxWidth="md" mx="auto" spacing={4} p={12} align="center" borderRadius="lg" bg="red.100">
       <Icon as={HiOutlineEmojiSad} w={12} h={12} color="red.500" />

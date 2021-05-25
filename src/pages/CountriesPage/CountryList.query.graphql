@@ -1,6 +1,6 @@
-query CountryList($filter: _CountryFilter) {
-  countries: Country(filter: $filter) {
-    _id
+query CountryList($filter: CountryFilterInput) {
+  countries(filter: $filter) {
+    code
     name
     ...CountryCardCountry
   }

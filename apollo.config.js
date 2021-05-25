@@ -5,7 +5,7 @@ module.exports = {
     service: {
       name: 'countries-grapi',
       service: 'graphql-example-app',
-      url: 'https://graphcountries.herokuapp.com/',
+      url: 'https://countries.trevorblades.com/',
     },
   },
 };

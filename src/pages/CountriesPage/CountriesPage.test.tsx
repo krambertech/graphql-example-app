@@ -29,7 +29,7 @@ test('shows error indication if request failed', async () => {
 
 test('shows loaded countries', async () => {
   const queryMocks = {
-    Country: () => [{ name: 'Germany' }, { name: 'Estonia' }],
+    countries: () => [{ name: 'Germany' }, { name: 'Estonia' }],
   };
 
   renderWithProviders(
@@ -48,19 +48,19 @@ test('shows loaded countries', async () => {
   expect(country2).toBeDefined();
 });
 
-test('allows to filter by subregion', async () => {
+test('allows to filter by continent', async () => {
   const queryMocks = {
-    Country: jest
+    countries: jest
       .fn()
       .mockReturnValueOnce([
         { name: 'Germany' },
-        { name: 'Estonia' },
+        { name: 'Angola' },
         { name: 'France' },
         { name: 'Italy' },
-        { name: 'Lithuania' },
+        { name: 'Ethiopia' },
       ])
-      .mockReturnValueOnce([{ name: 'Estonia' }, { name: 'Lithuania' }]),
-    Subregion: () => [{ name: 'Eastern Europe' }, { name: 'Asia' }],
+      .mockReturnValueOnce([{ name: 'Angola' }, { name: 'Ethiopia' }]),
+    continents: () => [{ name: 'Europe' }, { name: 'Africa' }],
   };
 
   renderWithProviders(
@@ -71,8 +71,8 @@ test('allows to filter by subregion', async () => {
 
   await waitForElementToBeRemoved(() => screen.queryByText('Loading...'));
 
-  const selectField = await screen.findByRole('combobox', { name: /subregion/i });
-  userEvent.selectOptions(selectField, 'Eastern Europe');
+  const selectField = await screen.findByRole('combobox', { name: /continent/i });
+  userEvent.selectOptions(selectField, 'Africa');
 
   const loadingIndicator = await screen.findByText('Loading...');
   expect(loadingIndicator).toBeDefined();
@@ -80,6 +80,6 @@ test('allows to filter by subregion', async () => {
   const countryCardsAfterSearch = await screen.findAllByTestId('countryCard');
   expect(countryCardsAfterSearch).toHaveLength(2);
 
-  expect(screen.getByRole('link', { name: /Lithuania/i })).toBeDefined();
-  expect(screen.getByRole('link', { name: /Estonia/i })).toBeDefined();
+  expect(screen.getByRole('link', { name: /angola/i })).toBeDefined();
+  expect(screen.getByRole('link', { name: /ethiopia/i })).toBeDefined();
 });

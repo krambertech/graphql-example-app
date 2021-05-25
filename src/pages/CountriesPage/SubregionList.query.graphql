@@ -1,6 +1,0 @@
-query SubregionList {
-  subregions: Subregion {
-    _id
-    name
-  }
-}

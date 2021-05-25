@@ -7,11 +7,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const client = new ApolloClient({
-  uri: process.env.REACT_APP_API_URL || 'https://graphcountries.herokuapp.com/',
+  uri: process.env.REACT_APP_API_URL || 'https://countries.trevorblades.com/',
   cache: new InMemoryCache({
     typePolicies: {
-      // With declaring type policies we can modify and decorate data on the client
       Country: {
+        keyFields: ['code'],
         fields: {
           capital: {
             read(value) {
@@ -20,6 +20,12 @@ const client = new ApolloClient({
             },
           },
         },
+      },
+      Continent: {
+        keyFields: ['code'],
+      },
+      Language: {
+        keyFields: ['code'],
       },
     },
   }),

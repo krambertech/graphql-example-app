@@ -1,32 +1,29 @@
-query CountryDetails($code: String!) {
-  countries: Country(alpha2Code: $code) {
-    _id
+query CountryDetails($code: ID!) {
+  country(code: $code) {
+    code
     name
-    nativeName
+    native
     capital
-    population
-    area
-    flag {
-      _id
-      emoji
-    }
-    subregion {
-      _id
-      name
-    }
-    timezones {
-      _id
-      name
-    }
-    currencies {
-      _id
+    emoji
+    phone
+    currency
+    continent {
       code
       name
-      symbol
+      countries {
+        code
+        ...CountryCardCountry
+      }
     }
-    borders {
-      _id
-      ...CountryCardCountry
+    states {
+      code
+      name
+    }
+    languages {
+      code
+      name
+      native
+      rtl
     }
   }
 }

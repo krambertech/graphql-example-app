@@ -1,11 +1,7 @@
 fragment CountryCardCountry on Country {
-  _id
+  code
   name
-  alpha2Code
+  native
   capital
-  population
-  flag {
-    _id
-    emoji
-  }
+  emoji
 }

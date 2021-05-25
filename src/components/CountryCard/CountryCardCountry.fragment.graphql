@@ -1,7 +1,0 @@
-fragment CountryCardCountry on Country {
-  code
-  name
-  native
-  capital
-  emoji
-}

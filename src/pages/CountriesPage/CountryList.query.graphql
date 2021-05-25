@@ -2,6 +2,7 @@ query CountryList($filter: CountryFilterInput) {
   countries(filter: $filter) {
     code
     name
-    ...CountryCardCountry
+    emoji
+    capital
   }
 }

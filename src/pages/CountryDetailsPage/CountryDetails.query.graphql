@@ -12,7 +12,9 @@ query CountryDetails($code: ID!) {
       name
       countries {
         code
-        ...CountryCardCountry
+        name
+        capital
+        emoji
       }
     }
     states {

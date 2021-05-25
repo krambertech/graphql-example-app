@@ -29,8 +29,8 @@ const CountriesPage: React.FC = () => {
     return <ErrorMessage title="Error" message={error.message} />;
   }
 
-  const displayedCountries = data?.countries?.filter(
-    country => country && country.name.toLowerCase().includes(search.toLowerCase()),
+  const displayedCountries = data?.countries?.filter(country =>
+    country.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
@@ -56,9 +56,9 @@ const CountriesPage: React.FC = () => {
           value={continent}
           onChange={e => setContinent(e.target.value)}
         >
-          {continents.data?.continents?.map(subregion => (
-            <option key={subregion.code} value={subregion.code}>
-              {subregion.name}
+          {continents.data?.continents.map(continent => (
+            <option key={continent.code} value={continent.code}>
+              {continent.name}
             </option>
           ))}
         </Select>

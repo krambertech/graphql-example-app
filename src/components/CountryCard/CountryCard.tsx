@@ -2,10 +2,11 @@ import { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { HiFlag } from 'react-icons/hi';
 import { Box, HStack, Link, Text, VStack } from '@chakra-ui/react';
-import { CountryCardCountry } from './__generated__/CountryCardCountry.fragment';
 
 type CountryCardProps = {
-  country: CountryCardCountry;
+  // we will fix this
+  // eslint-disable-next-line
+  country: any;
 };
 
 const CountryCard: FC<CountryCardProps> = ({ country }) => {

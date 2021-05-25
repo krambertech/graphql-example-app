@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 require('dotenv').config();
 
-const apiUrl = process.env.REACT_APP_API_URL || 'https://graphcountries.herokuapp.com/';
+const apiUrl = process.env.REACT_APP_API_URL || 'https://countries.trevorblades.com/';
 
 module.exports = {
   overwrite: true,

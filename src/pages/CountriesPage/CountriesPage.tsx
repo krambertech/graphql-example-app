@@ -15,15 +15,15 @@ import CountryCard from '../../components/CountryCard';
 import ErrorMessage from '../../components/ErrorMessage';
 import useQueryParam from '../../utils/useQueryParam';
 import { useCountryList } from './__generated__/CountryList.query';
-import { useSubregionList } from './__generated__/SubregionList.query';
+import { useContinentList } from './__generated__/ContinentList.query';
 
 const CountriesPage: React.FC = () => {
-  const [subregion, setSubregion] = useQueryParam('subregion');
+  const [continent, setContinent] = useQueryParam('continent');
   const [search, setSearch] = useQueryParam('search');
   const { data, loading, error } = useCountryList({
-    variables: { filter: subregion ? { subregion: { name: subregion } } : undefined },
+    variables: { filter: continent ? { continent: { eq: continent } } : undefined },
   });
-  const subregionList = useSubregionList();
+  const continents = useContinentList();
 
   if (error) {
     return <ErrorMessage title="Error" message={error.message} />;
@@ -50,20 +50,17 @@ const CountriesPage: React.FC = () => {
           />
         </InputGroup>
         <Select
-          aria-label="Choose subregion"
-          placeholder="All regions"
+          aria-label="Choose continent"
+          placeholder="All continents"
           width={250}
-          value={subregion}
-          onChange={e => setSubregion(e.target.value)}
+          value={continent}
+          onChange={e => setContinent(e.target.value)}
         >
-          {subregionList.data?.subregions?.map(
-            subregion =>
-              subregion?.name && (
-                <option key={subregion._id} value={subregion.name}>
-                  {subregion.name}
-                </option>
-              ),
-          )}
+          {continents.data?.continents?.map(subregion => (
+            <option key={subregion.code} value={subregion.code}>
+              {subregion.name}
+            </option>
+          ))}
         </Select>
       </HStack>
 
@@ -73,7 +70,9 @@ const CountriesPage: React.FC = () => {
         </Center>
       ) : (
         <SimpleGrid columns={2} spacing={8}>
-          {displayedCountries?.map(country => country && <CountryCard key={country?._id} country={country} />)}
+          {displayedCountries?.map(country => (
+            <CountryCard key={country.code} country={country} />
+          ))}
         </SimpleGrid>
       )}
     </Stack>

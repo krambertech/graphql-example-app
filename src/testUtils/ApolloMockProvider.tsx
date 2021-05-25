@@ -10,21 +10,18 @@ import { loader } from 'graphql.macro';
 // This is needed to support _id identifier,
 // otherwise it gets replaced with +id and produces an error
 const typePolicies = {
-  Country: { keyFieldName: '_id' },
-  Subregion: { keyFieldName: '_id' },
-  Flag: { keyFieldName: '_id' },
+  Country: { keyFieldName: 'code' },
+  Continent: { keyFieldName: 'code' },
+  Language: { keyFieldName: 'code' },
 };
 
 const commonResolvers: IMocks = {
   // scalars
   String: () => casual.word,
-  Int: () => casual.integer,
-  Float: () => casual.double(0, 1000),
 
   // custom types
   Country: () => ({
     name: () => casual.country,
-    alpha2Code: () => casual.country_code,
   }),
 };
 

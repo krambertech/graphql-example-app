@@ -1,13 +1,7 @@
-query CountryList($filter: _CountryFilter) {
-  countries: Country(filter: $filter) {
-    _id
+query CountryList($filter: CountryFilterInput) {
+  countries(filter: $filter) {
+    code
     name
-    alpha2Code
-    capital
-    population
-    flag {
-      _id
-      emoji
-    }
+    ...CountryCardCountry
   }
 }

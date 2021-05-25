@@ -1,6 +1,5 @@
 import { Center, Heading, Link, SimpleGrid, Spinner, Stack, Text, Box, HStack, Button } from '@chakra-ui/react';
-import { HiFlag, HiLocationMarker, HiUserGroup, HiArrowRight } from 'react-icons/hi';
-import { FiCrop } from 'react-icons/fi';
+import { HiFlag, HiLocationMarker, HiGlobeAlt, HiArrowRight, HiPhone } from 'react-icons/hi';
 import { useParams, Link as RouterLink } from 'react-router-dom';
 import CountryCard from '../../components/CountryCard';
 import TextLabel from '../../components/TextLabel/TextLabel';
@@ -49,11 +48,11 @@ const CountryDetailsPage: React.FC = () => {
             All countries
           </Button>
         </HStack>
-        <Text fontSize="xl">{country.native}</Text>
+        <Text fontSize="xl">-</Text>
       </Stack>
 
       <SimpleGrid columns={2} spacingX={8} spacingY={2}>
-        <TextLabel icon={<FiCrop />} label="ISO Code">
+        <TextLabel icon={<HiGlobeAlt />} label="ISO Code">
           {country.code}
         </TextLabel>
         <TextLabel icon={<HiFlag />} label="Capital">
@@ -64,7 +63,7 @@ const CountryDetailsPage: React.FC = () => {
             {country.continent.name}
           </Link>
         </TextLabel>
-        <TextLabel icon={<HiUserGroup />} label="Phone code">
+        <TextLabel icon={<HiPhone />} label="Phone code">
           +{country.phone}
         </TextLabel>
       </SimpleGrid>
@@ -76,7 +75,7 @@ const CountryDetailsPage: React.FC = () => {
           </Heading>
           <SimpleGrid columns={2} spacing={8}>
             {country.languages?.map(language => (
-              <Box borderWidth="1px" borderRadius="lg" p={6}>
+              <Box borderWidth="1px" borderRadius="lg" p={6} key={language.code}>
                 <HStack spacing={4}>
                   <Text fontSize="3xl" textTransform="uppercase">
                     {language.code}
